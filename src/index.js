@@ -1,7 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom';
+import ChatApp from './App';
+import AppContextProvider from './store';
 import './index.css';
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+import * as serviceWorker from "./serviceWorker";
+
+render(
+    <AppContextProvider>
+        <ChatApp />
+    </AppContextProvider>,
+    document.getElementById('cwvChatWidgetRoot')
+);
+
+
+
+serviceWorker.unregister();
+
 

@@ -1,0 +1,26 @@
+.wpcwv-chatHeader {
+    padding: 24px 14px 20px 14px;
+    position: relative;
+    z-index: 4;
+    color: #fff;
+    background: #E91E63;
+}
+.wpcwv-chatEvents {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.wpcwv-chatEventsRight {
+    display: flex;
+
+}
+.cwv-OptionsMenu {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+}

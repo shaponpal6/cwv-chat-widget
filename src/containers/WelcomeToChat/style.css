@@ -1,0 +1,25 @@
+.wpcwv-welcomeMessage {
+    background-color: rgb(255, 255, 255);
+    max-width: 340px;
+    position: absolute;
+    bottom: 26px;
+    box-shadow: rgba(0, 18, 46, 0.16) 0px 8px 26px 0px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    max-height: calc(100% - 76px);
+    right: 48px;
+    margin-left: 20px;
+    padding: 0px 24px;
+    border-radius: 12px;
+}
+.wpcwv-wmBody {
+    max-width: 290px;
+    font-size: 17px;
+    position: relative;
+    overflow-wrap: break-word;
+    white-space: pre-line;
+    padding: 19px 38px 19px 0px;
+    background: rgb(255, 255, 255);
+    overflow: hidden auto;
+}

@@ -1,0 +1,66 @@
+@import './color.css';
+@import './helpers.css'; 
+.wpcwv-theme{
+    color: #fff;
+    background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
+    box-shadow: rgba(0, 77, 255, 0.5) 0px 4px 24px;
+}
+.wpcwv-container {
+  height: 100vh;
+  width: 100%;
+}
+.wpcwv-startButton {
+  position: absolute;
+  width: 112px;
+  height: 140px;
+  bottom: 12px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+  right: 0px;
+  left: auto;
+}
+.wpcwv-widgetButton {
+  width: 60px;
+  height: 60px;
+  background-size: 130% 130%;
+  position: relative;
+  will-change: transform;
+  border-radius: 28px;
+}
+.wpcwv-button {
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+  pointer-events: initial;
+  cursor: pointer;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+}
+
+.wpcwv-chatWidget, .wpcwv-chatDashboard {
+    display: flex;
+    flex-direction: column;
+    width: 372px;
+    max-height: calc(100% - 47px);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 16px;
+    pointer-events: auto;
+    -webkit-box-shadow: 0 8px 36px 0 rgba(0, 18, 46, .16);
+    box-shadow: 0 8px 36px 0 rgba(0, 18, 46, .16);
+    overflow: hidden;
+    z-index: 99999;
+    -webkit-transition: all 2s cubic-bezier(.45, .05, .55, .95);
+    -o-transition: all 2s cubic-bezier(.45, .05, .55, .95);
+    transition: all 2s cubic-bezier(.45, .05, .55, .95);
+}
+
