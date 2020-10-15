@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { AppContext } from '../../store';
+import Message from '../Message';
+
 import { setMessages, setClientData } from '../../store/actions'
 
 import { useDocument } from "react-firebase-hooks/firestore";
@@ -22,10 +24,10 @@ function Messages({ firebase }) {
     useEffect(() => {
         console.log('_clientData shapshot', _clientData)
         // console.log('_clientData shapshot', _clientData.data())
-        if (_clientData && _clientData.data()) {
+        if (_clientData) {
             let clientSnapshot = _clientData.data();
             console.log('clientSnapshot init', clientSnapshot)
-            if (Array.isArray(clientSnapshot.messages)) {
+            if (clientSnapshot && clientSnapshot.hasOwnProperty('messages')) {
                 let clientMessageSnapshot = clientSnapshot.messages;
                 console.log('clientSnapshot message', clientMessageSnapshot)
                 // dispatch(setMessages(clientMessageSnapshot))
@@ -38,7 +40,7 @@ function Messages({ firebase }) {
 
         }
         return () => { }
-    }, [])
+    }, [loading])
 
 
     return (
@@ -46,6 +48,14 @@ function Messages({ firebase }) {
             Messages page
             {console.log('state>>>>>>', state)}
             {_clientData && console.log('_clientData, loading, error', _clientData.data(), loading, error)}
+            {loading && 'Message: Loading.....'}
+            {error && 'Error: ' + error}
+
+            {state.messages.map((message) => {
+                return <Message key={"ss" + message.key} message={message} />;
+            })}
+
+
 
         </div>
     )

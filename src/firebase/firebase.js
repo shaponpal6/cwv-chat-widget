@@ -60,7 +60,7 @@ class Firebase {
   };
   setMessage = (data) => {
     if (!this.getAuth()) return null;
-    const clientRef = this.db.collection('clients').doc('mPCALIno57dYB83cfRpN8Vy4wt93');
+    const clientRef = this.db.collection('clients').doc(this.getUserID());
     // data.time = this.firestore.Timestamp.now();
 
     return clientRef.set({

@@ -1,19 +1,16 @@
 import React, { useContext, useState } from 'react';
 import uniqid from 'uniqid';
-// import { ChatWidgetContext } from '../../contexts/chatWidgetContext';
 import { AppContext } from '../../store';
 import { addMessage } from '../../store/actions';
 import Operators from '../../components/Operators';
-import OptionsMenu from '../../components/OptionsMenu';
-// import ChatHeader from '../ChatHeader';
-// import ChatBody from '../ChatBody';
-// import ChatFooter from '../ChatFooter';
-import Message from '../../components/Message';
+import HeaderActionsButton from '../../components/HeaderActionsButton';
+
+
 import Messages from '../../components/Messages';
 import AuthForm from '../../components/AuthForm';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { withFirebase } from '../../firebase'
-import { ArrowDownLeft, Settings, Bell, ArrowLeft } from 'react-feather';
+import { ArrowLeft } from 'react-feather';
 import PropTypes from 'prop-types'
 
 
@@ -27,22 +24,12 @@ function Widget({ firebase }) {
   console.log('firebase', firebase)
   const [user, loading, error] = useAuthState(firebase.getAuth());
   const [state, dispatch] = useContext(AppContext);
-  const [menuState, setMenuState] = useState(false);
+
   const [message, setMessage] = useState('');
 
 
 
-  // Back to Dashboard
-  const onSignIn = (e) => {
-    console.log('sign in click', e)
-    firebase.doSignInAnonymously()
-  };
 
-  // Back to Dashboard
-  const onSignOut = (e) => {
-    console.log('sign out click', e)
-    firebase.doSignOut()
-  };
 
   // Close Chat Widget
   const onDashboardBack = () => {
@@ -101,28 +88,9 @@ function Widget({ firebase }) {
               </button>
             )}
           </div>
-          <div className="wpcwv-chatEventsRight">
-            <div
-              className="wpcwv-chatEventsMenu"
-              onClick={() => setMenuState(!menuState)}
-            >
-              <Bell />
-            </div>
 
-            <div
-              className="wpcwv-chatEventsMenu"
-              onClick={() => setMenuState(!menuState)}
-            >
-              <Settings />
-            </div>
-            <div
-              className="wpcwv-chatWidgetClose"
-              onClick={() => onCloseWidget()}
-            >
-              <ArrowDownLeft />
-            </div>
-          </div>
-          {menuState && <OptionsMenu onSignIn={onSignIn} onSignOut={onSignOut} />}
+          <HeaderActionsButton onCloseWidget={onCloseWidget} />
+
         </div>
         {state.operators.length > 0 && (
           <Operators operators={state.operators} />
@@ -132,13 +100,7 @@ function Widget({ firebase }) {
       {/* ----------- Chat Body Container ------------ */}
       <div className="wpcwv-chatBodyWraper">
 
-        {loading && 'Message: Loading.....'}
-        {error && 'Error: ' + error}
         {user ? <Messages /> : <AuthForm />}
-
-        {state.messages.map((message) => {
-          return <Message key={message.key} message={message} />;
-        })}
 
 
       </div>
