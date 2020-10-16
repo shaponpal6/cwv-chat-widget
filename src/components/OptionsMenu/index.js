@@ -30,7 +30,7 @@ function OptionsMenu({ firebase }) {
         // });
     };
     return (
-        <div className="cwv-OptionsMenu">
+        <div className="cwv-OptionsMenu cwv-shadow">
             {loading && <Loading />}
             {user ?
                 <button onClick={(e) => onSignOut(e)}>Sign Out</button>

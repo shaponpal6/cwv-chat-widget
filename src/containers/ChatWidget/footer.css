@@ -1,29 +1,8 @@
-/* .inputForm{
-    display: inline;
-}
-.inputForm form {
-    padding: 6px;
-    display: flex;
-    width: 100%;
-    background: #9C27B0;
-    float: left;
-}
-.inputForm input {
-    padding: 6px;
-    background: #FFC107;
-    outline: 0;
-    color: #4A148C;
-}
 
-.inputForm button {
-    padding: 6px;
-    width: 100%;
-    background: #4CAF50;
-    float: left;
-    color: #fff;
-} */
 .wpcwv-FooterWraper {
     width: 100%;
+    /* position: absolute;
+    bottom: 0; */
 }
 .wpcwv-widgetFooter {
     width: auto;
@@ -39,7 +18,7 @@
     width: 100%;
     box-sizing: border-box;
 }
-textarea.wpcwv-textarea {
+.wpcwv-textarea {
     font-weight: 400;
     font-size: 14px;
     line-height: 120%;
@@ -54,4 +33,8 @@ textarea.wpcwv-textarea {
     padding: 0;
     overflow-y: hidden;
     overflow-x: hidden;
+}
+.wpcwv-buttonSend{
+    background:#31f89b;
+    padding: 11px;
 }

@@ -6,11 +6,14 @@ const INITIAL = {
   welcomeBox: true,
   isLogedIn: true,
   chatButton: true,
+  wheelState: 'up',
   operators: [
     { name: 'Shapon Pal', avater: '' },
     { name: 'Shapon Pal2', avater: '' },
     { name: 'Shapon Pal3', avater: '' },
-    { name: 'Shapon Pal4', avater: '' },
+  ],
+  onChatOperators: [
+    { name: 'Shapon Pal', avater: '' },
   ],
   locales: {
     chatWith: 'Chat With222',

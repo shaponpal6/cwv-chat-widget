@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA } from './actionTypes';
+import { ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE } from './actionTypes';
 
 export const addMessage = message => ({
     type: ADD_MESSAGE,
@@ -13,5 +13,10 @@ export const setMessages = messages => ({
 export const setClientData = messages => ({
     type: SET_CLIENT_DATA,
     payload: messages,
+})
+
+export const setWheelState = wheel => ({
+    type: WHEEL_STATE,
+    payload: wheel,
 })
 

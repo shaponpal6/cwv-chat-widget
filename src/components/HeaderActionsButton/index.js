@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import OptionsMenu from '../OptionsMenu';
 import { ArrowDownLeft, Settings, Bell, ArrowDown } from 'react-feather';
+import './style.css';
 
 function HeaderActionsButton({ onCloseWidget }) {
     const [menuState, setMenuState] = useState(false);
     return (
-        <div>
-            <div className="wpcwv-chatEventsRight">
+        <div className="wpcwv-chatEventsRight">
+            <div className="wpcwv-chatActions">
                 <div
                     className="wpcwv-chatEventsMenu"
                     onClick={() => setMenuState(!menuState)}

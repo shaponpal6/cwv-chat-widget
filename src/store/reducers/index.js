@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA } from '../actionTypes';
+import { ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE } from '../actionTypes';
 
 const OnOff = (state, key) => {
   switch (key) {
@@ -48,6 +48,13 @@ const Reducer = (state, action) => {
       return {
         ...state,
         clientData: payload,
+      }
+    }
+
+    case WHEEL_STATE: {
+      return {
+        ...state,
+        wheelState: action.payload,
       }
     }
     case 'REMOVE_POST':

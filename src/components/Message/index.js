@@ -11,13 +11,15 @@ function Message({ message }) {
         <figcaption className="font-accent">S</figcaption>
       </figure>
       <div className="wpcwv-messageContainer">
+        <div className="wpcwv-senderMessage cwv-shadow">{message.text}</div>
+
         <div className="wpcwv-messageHeader">
           <span className="wpcwv-messageSender">muhammadroshaan</span>
           <time dateTime="Mon Oct 05 2020 13:27:10 GMT+0600 (Bangladesh Standard Time)">
             Oct 05, 1:27 PM
           </time>
         </div>
-        <div className="wpcwv-senderMessage">{message.text}</div>
+
       </div>
       <div className="wpcwv-messageDivider"></div>
     </div>

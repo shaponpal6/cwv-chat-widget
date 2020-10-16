@@ -8,19 +8,21 @@
 .wpcwv-chatEvents {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     position: relative;
+    width: 100%;
+}
+.wpcwv-chatEventsLeft {
+    display: inline;
+    width: 20%;
+    height: 30px;
+}
+.cwv-operators {
+    width: 60%;
 }
 .wpcwv-chatEventsRight {
-    display: flex;
+    display: inline;
+    width: 20%;
+    height: 30px;
+}
 
-}
-.cwv-OptionsMenu {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    position: absolute;
-    top: 18px;
-    right: 10px;
-}

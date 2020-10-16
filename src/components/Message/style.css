@@ -7,9 +7,11 @@
     padding: 10px 15px;
     display: flex;
     flex-shrink: 0;
+     margin: 2px 0px;
+    margin-top: 9px;
 }
 .wpcwv-avaterWrapper {
-    background-color: #e3e3e3;
+    /* background-color: #e3e3e3;
     position: relative;
     line-height: 100%;
     width: 2em;
@@ -23,12 +25,35 @@
     padding: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background: 0 0;
+        background: transparent; */
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum","tnum";
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    background: #ccc;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50%;
 }
 .wpcwv-avaterWrapper img {
+    display: block;
     width: 100%;
     height: 100%;
-    display: none;
+    object-fit: cover;
 }
 .wpcwv-avaterWrapper img[src^="//"], .wpcwv-avaterWrapper img[src^=http] {
     display: block;
@@ -44,24 +69,32 @@
 
 .wpcwv-messageContainer {
     width: 80%;
+    margin-left: 5px;
 }
 .wpcwv-messageHeader {
     margin-bottom: 5px;
     display: block;
 }
 .wpcwv-messageSender {
-    color: #0e0e0f;
+    color: #999;
     font-size: 14px;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 .wpcwv-messageHeader time{
     color: #999;
     margin: 0 5px;
 }
 .wpcwv-senderMessage {
-    margin: 5px 10px -5px 0;
-    max-width: 540px;
-    font-size: 14px;
+    color: rgb(6, 19, 43);
+    background: rgb(240, 242, 247);
+    font-size: 15px;
+    overflow-wrap: break-word;
+    display: inline-block;
+    clear: both;
+    position: relative;
+    padding: 10px 16px;
+    border-radius: 4px;
+    transition: margin 0.28s ease-in-out 0s;
     line-height: 145%;
     word-break: break-word;
     white-space: pre-line;

@@ -50,6 +50,7 @@
     flex-direction: column;
     width: 372px;
     max-height: calc(100% - 47px);
+    height: calc(100% - 47px);
     position: fixed;
     bottom: 20px;
     right: 20px;

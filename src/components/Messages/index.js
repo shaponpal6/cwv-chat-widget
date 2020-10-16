@@ -1,7 +1,9 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { AppContext } from '../../store';
 import Message from '../Message';
+import RSC from "react-scrollbars-custom";
+import './style.css';
 
 import { setMessages, setClientData } from '../../store/actions'
 
@@ -9,8 +11,16 @@ import { useDocument } from "react-firebase-hooks/firestore";
 import { withFirebase } from '../../firebase'
 
 function Messages({ firebase }) {
+    const messagesEndRef = useRef(null)
+
+    const scrollToBottom = () => {
+        console.log('messagesEndRef', messagesEndRef)
+        messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+    }
 
     const [state, dispatch] = useContext(AppContext);
+
+    useEffect(scrollToBottom, [state.messages]);
 
 
 
@@ -39,12 +49,22 @@ function Messages({ firebase }) {
             dispatch(setClientData(clientSnapshot));
 
         }
+
+        // Message scroll position bottom
+        // scrollToBottom()
+
         return () => { }
     }, [loading])
 
 
+    const cwvScrollerElement = (e) => {
+        console.log('-------cwvScrollerElement---------', e)
+        // messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+    }
+
+
     return (
-        <div>
+        <RSC className="wpcwv-messageScrollbarWraper" id="wpcwv-messageScrollbarWraper" style={{ width: "100%", height: "100%" }} momentum={true} maximalThumbYSize={10} onScrollStart={cwvScrollerElement} >
             Messages page
             {console.log('state>>>>>>', state)}
             {_clientData && console.log('_clientData, loading, error', _clientData.data(), loading, error)}
@@ -56,8 +76,8 @@ function Messages({ firebase }) {
             })}
 
 
-
-        </div>
+            <div ref={messagesEndRef} />
+        </RSC>
     )
 }
 
