@@ -11,7 +11,7 @@
 
 .wpcwv-cardComponent:hover {
   box-shadow:5px 5px 25px rgba(0,0,0, .5);
-  transform: translate(-5px, -5px);
+  transform: translate(0, -5px);
 }
 
 .wpcwv-cardImageCover{
@@ -35,9 +35,18 @@
   display:inline;
 }
 
+.wpcwv-input{
+ border: 1px solid;
+    width: 100%;
+    padding: 6px;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
 
 .wpcwv-cardFooter {
-  display: inline;
+ display: block;
+    padding: 0 1.5em;
 }
 
 

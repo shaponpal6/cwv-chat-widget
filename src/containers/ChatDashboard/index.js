@@ -3,7 +3,10 @@ import { AppContext } from '../../store';
 import { setRoute } from '../../store/actions';
 import RSC from "react-scrollbars-custom";
 import Card from '../../components/Card'
+import './header.css'
 import './footer.css'
+import { X } from 'react-feather';
+import ButtonCircle from '../../components/ButtonCircle';
 
 function ChatDashboard() {
   const [state, dispatch] = useContext(AppContext);
@@ -14,6 +17,15 @@ function ChatDashboard() {
     dispatch(setRoute('chatWidget'));
   };
 
+  // Close Chat Widget
+  const onKnowledgebase = () => {
+    dispatch(setRoute('knowledgebase'));
+  };
+  // Close Chat Widget
+  const onDashboardClose = () => {
+    dispatch(setRoute('chatIntro'));
+  };
+
   return (
     <div>
       <div className="wpcwv-chatDashboard">
@@ -21,17 +33,18 @@ function ChatDashboard() {
           <h2>Logo</h2>
           <h2>Hi</h2>
           <h4>We help your business grow by connecting you to your customers.</h4>
+          <span className="wpcwv-dashboardCloseBtn" onClick={onDashboardClose}><X /></span>
 
         </div>
         <div className="wpcwv-chatBodyWraper">
           <RSC className="wpcwv-messageScrollbarWraper" id="wpcwv-messageScrollbarWraper" style={{ width: "100%", height: "100%" }} momentum={true} maximalThumbYSize={10} >
 
-            <Card title="Start a conversation" footer="Send us a Message" onClick={onWidgetBack}>
+            <Card title="Start a conversation" footer="Send us a Message" onClick={onKnowledgebase}>
 
             </Card>
 
             <Card title="Find your answer now">
-              <input type="text" />
+              <input type="text" className="wpcwv-input" />
             </Card>
 
 
@@ -47,9 +60,21 @@ function ChatDashboard() {
           </RSC>
         </div>
 
-        <div className="wpcwv-FooterWraper wpcwv-dashboardFooter">We Are Nothing</div>
+        <div className="wpcwv-FooterWraper wpcwv-dashboardFooter">
+          We Are Nothing
+
+        </div>
+        {/* <button
+          className="wpcwv-button wpcwv-widgetButton wpcwv-theme wpcwv-dashboardCloseBtn"
+          onClick={onDashboardClose}
+        >
+          <X size={37} />
+        </button> */}
+
 
       </div>
+
+      <ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} image={<X size={37} />} />
     </div>
   )
 }

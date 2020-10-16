@@ -6,7 +6,7 @@ import './style.css';
 function ChatButtonCommonent({ onClose, onChat, text }) {
   return (
     <div className="wpcwv-welcomeMessage">
-      <div className="wpcwv-wmHeader">
+      <span className="wpcwv-wmHeader">
         <button className="wpcwv-button wpcwv-btnClose"
           onClick={() => {
             onClose();
@@ -14,7 +14,7 @@ function ChatButtonCommonent({ onClose, onChat, text }) {
         >
           <XCircle />
         </button>
-      </div>
+      </span>
 
       <div className="wpcwv-wmBody">
         <h2> {text}</h2>

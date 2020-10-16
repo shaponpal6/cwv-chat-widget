@@ -55,6 +55,7 @@
     "react-typed": "^1.2.0",
     "style-loader": "^1.0.1",
     "uniqid": "5.2.0",
+    "use-sound": "^1.0.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"

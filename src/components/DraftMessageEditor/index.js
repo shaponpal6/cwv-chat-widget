@@ -2,9 +2,13 @@ import React from "react";
 import { Editor, EditorState, ContentState, convertToRaw, getDefaultKeyBinding, KeyBindingUtil } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import "draft-js/dist/Draft.css";
+import useSound from 'use-sound';
+
+import RisingPops from '../../sounds/rising-pops.mp3';
 const { hasCommandModifier } = KeyBindingUtil;
 
 function DraftMessageEditor({ onMessageSave }) {
+  const [play] = useSound(RisingPops);
   const [editorState, setEditorState] = React.useState(() =>
     EditorState.createEmpty()
   );
@@ -16,6 +20,7 @@ function DraftMessageEditor({ onMessageSave }) {
   };
 
   const clearOnSubmit = () => {
+
     setEditorState(() =>
       EditorState.push(
         editorState,
@@ -33,6 +38,7 @@ function DraftMessageEditor({ onMessageSave }) {
     console.log(rowMessage);
     clearOnSubmit();
     if (rowMessage !== "") onMessageSave(rowMessage);
+    //return play();
   };
 
   const cwvKeyBindingFn = (e) => {

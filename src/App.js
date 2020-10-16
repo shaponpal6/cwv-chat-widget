@@ -8,6 +8,8 @@ import Firebase, { FirebaseContext } from "./firebase";
 // import localState from './store/state';
 import './utils/widget.css';
 import { Camera, MessageSquare } from 'react-feather';
+import Knowledgebase from './containers/Knowledgebase';
+import ButtonCircle from './components/ButtonCircle';
 
 const ChatApp = () => {
     const [state, dispatch] = useContext(AppContext);
@@ -50,15 +52,12 @@ const ChatApp = () => {
 
             {(state.chatRoute === "chatWidget") && <FirebaseContext.Provider value={new Firebase()}><ChatWidget /></FirebaseContext.Provider>}
             {(state.chatRoute === "chatDashboard") && <ChatDashboard />}
+            {(state.chatRoute === "knowledgebase") && <Knowledgebase />}
             {(state.chatRoute === "chatIntro" && state.welcomeBox) && <WelcomePage text="welcome!!" onClose={onChatWelcomeBoxClose} onChat={onChatButtonClick} />}
 
             <div className="wpcwv-startButton">
-                <button
-                    className="wpcwv-button wpcwv-widgetButton wpcwv-theme"
-                    onClick={onChatButtonClick}
-                >
-                    <MessageSquare size={37} />
-                </button>
+
+                <ButtonCircle onClick={onChatButtonClick} image={<MessageSquare size={37} />} />
             </div>
         </div>
     );

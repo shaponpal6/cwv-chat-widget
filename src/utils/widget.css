@@ -3,7 +3,7 @@
 .wpcwv-theme{
     color: #fff;
     background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
-    box-shadow: rgba(0, 77, 255, 0.5) 0px 4px 24px;
+    box-shadow: 5px 5px 15px rgba(0,0,0, .3);
 }
 .wpcwv-container {
   height: 100vh;

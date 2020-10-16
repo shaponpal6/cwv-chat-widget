@@ -1,0 +1,15 @@
+.wpcwv-listComponent {
+    padding: 1em;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.wpcwv-listTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+

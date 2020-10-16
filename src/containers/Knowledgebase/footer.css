@@ -1,8 +1,7 @@
 .wpcwv-dashboardFooter {
-      padding: 8px;
+        padding: 10px;
     text-align: center;
     background: #1e90ff;
-    font-size: 20px;
+    font-size: 16px;
     color: #fff;
-    cursor: pointer;
 }
