@@ -2,27 +2,51 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-
-.text-center{
-    text-align: center!important;
+.wpcwv-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: initial;
+  cursor: pointer;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
 }
 
-.relative{
-    position: relative;
+.wpcwv-buttonPrimary{
+ background-color: dodgerblue;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    transition: all .2s;
+    overflow: auto;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-.mb-1{
-    margin-bottom: 10px;
+.wpcwv-buttonPrimary:hover{
+  background-color: SteelBlue;
 }
-.mb-2{
-    margin-bottom: 20px;
+.wpcwv-aniSVGRight:hover svg{
+  animation : cwvSVGRightFadeoutAnination 1s;
 }
-.mb-3{
-    margin-bottom: 30px;
-}
-.mb-4{
-    margin-bottom: 40px;
-}
-.mb-5{
-    margin-bottom: 50px;
+
+@keyframes cwvSVGRightFadeoutAnination{
+  0%, 100% {
+    opacity : 1;
+    transform: translateX(0%);
+  }
+  50%{
+    opacity:0;
+    transform: translateX(100%);
+  }
+  70%{
+    opacity:0;
+    transform:translateX(-100%);
+  }
 }

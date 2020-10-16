@@ -23,3 +23,17 @@
     background: rgb(255, 255, 255);
     overflow: hidden auto;
 }
+.wpcwv-wmBody h2 {
+    margin-bottom: 10px;
+}
+.wpcwv-wmHeader {
+    float: right;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+.wpcwv-btnClose{
+        margin-right: -20px;
+    margin-top: 5px;
+}

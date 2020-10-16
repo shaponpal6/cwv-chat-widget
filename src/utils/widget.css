@@ -32,18 +32,7 @@
   will-change: transform;
   border-radius: 28px;
 }
-.wpcwv-button {
-  display: inherit;
-  align-items: center;
-  justify-content: center;
-  pointer-events: initial;
-  cursor: pointer;
-  border-width: 0px;
-  border-style: initial;
-  border-color: initial;
-  border-image: initial;
-  outline: none;
-}
+
 
 .wpcwv-chatWidget, .wpcwv-chatDashboard {
     display: flex;

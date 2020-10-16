@@ -7,7 +7,7 @@ import ChatDashboard from './containers/ChatDashboard';
 import Firebase, { FirebaseContext } from "./firebase";
 // import localState from './store/state';
 import './utils/widget.css';
-import { Camera } from 'react-feather';
+import { Camera, MessageSquare } from 'react-feather';
 
 const ChatApp = () => {
     const [state, dispatch] = useContext(AppContext);
@@ -38,7 +38,7 @@ const ChatApp = () => {
     const onChatStartClick = () => {
         dispatch({
             type: 'SET_ROUTE',
-            payload: 'chatWidget',
+            payload: 'chatDashboard',
         });
     };
 
@@ -48,8 +48,8 @@ const ChatApp = () => {
             <h2>Do not Think so much. Just work</h2>
             <Camera />
 
-            {(state.chatRoute === "chatWidget" && state.chatWidget) && <FirebaseContext.Provider value={new Firebase()}><ChatWidget /></FirebaseContext.Provider>}
-            {(state.chatRoute === "chatDashboard" && state.chatWidget) && <ChatDashboard />}
+            {(state.chatRoute === "chatWidget") && <FirebaseContext.Provider value={new Firebase()}><ChatWidget /></FirebaseContext.Provider>}
+            {(state.chatRoute === "chatDashboard") && <ChatDashboard />}
             {(state.chatRoute === "chatIntro" && state.welcomeBox) && <WelcomePage text="welcome!!" onClose={onChatWelcomeBoxClose} onChat={onChatButtonClick} />}
 
             <div className="wpcwv-startButton">
@@ -57,8 +57,8 @@ const ChatApp = () => {
                     className="wpcwv-button wpcwv-widgetButton wpcwv-theme"
                     onClick={onChatButtonClick}
                 >
-                    Start
-        </button>
+                    <MessageSquare size={37} />
+                </button>
             </div>
         </div>
     );

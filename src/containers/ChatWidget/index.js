@@ -1,7 +1,7 @@
 import React, { useContext, useState, useRef, useLayoutEffect } from 'react';
 import uniqid from 'uniqid';
 import { AppContext } from '../../store';
-import { addMessage, setWheelState } from '../../store/actions';
+import { setRoute, doOnOff, addMessage, setWheelState } from '../../store/actions';
 import Operators from '../../components/Operators';
 import Operator from '../../components/Operator';
 import HeaderActionsButton from '../../components/HeaderActionsButton';
@@ -65,18 +65,12 @@ function Widget({ firebase }) {
 
   // Close Chat Widget
   const onDashboardBack = () => {
-    dispatch({
-      type: 'ON_OFF',
-      payload: 'chatWidget',
-    });
+    dispatch(setRoute('chatDashboard'));
   };
 
   // Close Chat Widget
   const onCloseWidget = () => {
-    dispatch({
-      type: 'ON_OFF',
-      payload: 'chatWidget',
-    });
+    dispatch(doOnOff('chatWidget'));
   };
 
   // Chat Start Button

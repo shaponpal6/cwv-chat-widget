@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ArrowRight, XCircle } from 'react-feather';
 import './style.css';
 
 function ChatButtonCommonent({ onClose, onChat, text }) {
   return (
     <div className="wpcwv-welcomeMessage">
       <div className="wpcwv-wmHeader">
-        <button className="wpcwv-button"
+        <button className="wpcwv-button wpcwv-btnClose"
           onClick={() => {
             onClose();
           }}
         >
-          Close Me
+          <XCircle />
         </button>
       </div>
 
@@ -21,12 +22,12 @@ function ChatButtonCommonent({ onClose, onChat, text }) {
         the topics listed below
       </div>
       <div className="wpcwv-wmFooter">
-        <button className="wpcwv-button"
+        <button className="wpcwv-button wpcwv-buttonPrimary wpcwv-aniSVGRight"
           onClick={(e) => {
             onChat(e);
           }}
         >
-          Start Chat
+          <span>Start Chat</span> <ArrowRight />
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE } from '../actionTypes';
+import { DASHBOARD_BACK, CHAT_WIDGET, ON_OFF, SET_ROUTE, ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE } from '../actionTypes';
 
 const OnOff = (state, key) => {
   switch (key) {
@@ -23,19 +23,28 @@ const OnOff = (state, key) => {
 };
 const Reducer = (state, action) => {
   switch (action.type) {
-    case 'ON_OFF':
+    case ON_OFF:
       return OnOff(state, action.payload);
-    case 'SET_ROUTE':
+    case SET_ROUTE:
       return {
         ...state,
         chatRoute: action.payload,
       };
 
-    case ADD_MESSAGE:
+    case DASHBOARD_BACK: {
+      return {
+        ...state,
+        chatRoute: 'chatDashboard',
+      }
+    }
+
+    case ADD_MESSAGE: {
       return {
         ...state,
         messages: state.messages.concat(action.payload),
-      };
+      }
+    }
+
     case SET_MESSAGES: {
       const payload = Array.isArray(action.payload) ? action.payload : [];
       return {
