@@ -55,10 +55,9 @@ const ChatApp = () => {
             {(state.chatRoute === "knowledgebase") && <Knowledgebase />}
             {(state.chatRoute === "chatIntro" && state.welcomeBox) && <WelcomePage text="welcome!!" onClose={onChatWelcomeBoxClose} onChat={onChatButtonClick} />}
 
-            <div className="wpcwv-startButton">
-
+            {state.chatRoute === "chatIntro" && <div className="wpcwv-startButton">
                 <ButtonCircle type="circle" onClick={onChatButtonClick} image={<MessageSquare size={37} />} />
-            </div>
+            </div>}
         </div>
     );
 };

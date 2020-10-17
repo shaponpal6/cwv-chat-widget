@@ -3,6 +3,7 @@ import { AppContext } from '../../store';
 import { setRoute } from '../../store/actions';
 import RSC from "react-scrollbars-custom";
 import ListView from '../../components/ListView'
+import ButtonCircle from '../../components/ButtonCircle';
 // import Card from '../../components/Card'
 // import './header.css'
 // import './footer.css'
@@ -16,6 +17,10 @@ function Knowledgebase() {
   // Close Chat Widget
   const onDashboardBack = () => {
     dispatch(setRoute('chatDashboard'));
+  };
+  // Close Chat Widget
+  const onDashboardClose = () => {
+    dispatch(setRoute('chatIntro'));
   };
   // Close Chat Widget
   const onLiveChat = () => {
@@ -100,9 +105,9 @@ function Knowledgebase() {
         <div className="wpcwv-FooterWraper wpcwv-dashboardFooter" onClick={onLiveChat}>
           Live Chat with us
         </div>
-
-
       </div>
+      <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div>
+
     </div>
   )
 }

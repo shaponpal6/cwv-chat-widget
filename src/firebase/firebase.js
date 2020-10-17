@@ -108,6 +108,20 @@ class Firebase {
     });
   }
 
+  doSignInAnonymouslyWithData = (data) => {
+    this.auth.signInAnonymously().then(function (token) {
+      if (token.hasOwnProperty('user')) {
+        const uid = token.user.uid;
+        updateUserListMap(uid, data);
+      }
+      console.log('token>>>> ', token)
+      console.log('data>>>> ', data)
+    }).catch(function (error) {
+      console.log('error>>>> ', error)
+    });
+  }
+
+
   doSignInWithGoogle = () => {
     var provider = this.googleProvider;
     this.auth.useDeviceLanguage();
