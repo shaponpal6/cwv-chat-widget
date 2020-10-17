@@ -34,6 +34,7 @@ class Firebase {
     this.db = app.firestore();
     this.firestore = app.firestore;
     this.googleProvider = new app.auth.GoogleAuthProvider();
+    this.updateUserListMap = this.updateUserListMap.bind(this);
   }
 
   // *** Auth API ***
@@ -109,14 +110,7 @@ class Firebase {
   }
 
   doSignInAnonymouslyWithData = (data) => {
-    this.auth.signInAnonymously().then(function (token) {
-      if (token.hasOwnProperty('user')) {
-        const uid = token.user.uid;
-        this.updateUserListMap(uid, data);
-      }
-      console.log('token>>>> ', token)
-      console.log('data>>>> ', data)
-    }).catch(function (error) {
+    this.auth.signInAnonymously().catch(function (error) {
       console.log('error>>>> ', error)
     });
   }

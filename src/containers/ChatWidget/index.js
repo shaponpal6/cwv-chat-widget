@@ -25,7 +25,7 @@ import './footer.css';
 function Widget({ firebase }) {
   const cwvRef = useRef();
 
-  console.log('firebase', firebase)
+
   const [user, loading, error] = useAuthState(firebase.getAuth());
   const [state, dispatch] = useContext(AppContext);
 
@@ -38,7 +38,6 @@ function Widget({ firebase }) {
 
   const handleScroll = (event) => {
     if (!isScrollingState) {
-      console.log('@@@@setIsScrollingState(true)', isScrollingState)
       dispatch(setWheelState(event.deltaY < 0 ? 'up' : 'down'));
       setSrollPosition(event.deltaY);
     }
@@ -58,7 +57,6 @@ function Widget({ firebase }) {
     };
   }, []);
 
-  console.log('scrollPosition >>>> ', scrollPosition)
 
 
 

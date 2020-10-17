@@ -10,7 +10,7 @@ function ListViewComponent(props) {
         setListExpend(!listExpend);
     };
 
-    console.log('props', props)
+    // console.log('props', props)
     const childrenWithProps = React.Children.map(props.children, child => {
         // checking isValidElement is the safe way and avoids a typescript error too
         const props = child.props;

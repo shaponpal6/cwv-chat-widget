@@ -38,7 +38,7 @@ function DraftMessageEditor({ onMessageSave }) {
     console.log(rowMessage);
     clearOnSubmit();
     if (rowMessage !== "") onMessageSave(rowMessage);
-    //return play();
+    return play();
   };
 
   const cwvKeyBindingFn = (e) => {

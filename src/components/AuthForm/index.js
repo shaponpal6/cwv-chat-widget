@@ -1,18 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-// import { useAuthState } from "react-firebase-hooks/auth";
 import { withFirebase } from '../../firebase'
 import './style.css'
 import CardComponent from '../Card';
 
 function AuthForm({ firebase }) {
-    const [formData, setFormData] = useState({});
-    // const [user, loading, error] = useAuthState(firebase.getAuth());
+    const [formData, setFormData] = useState({ type: "newChat" })
+
+
+    firebase.getAuth().onAuthStateChanged(function (user) {
+        if (user) {
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            if (isAnonymous && uid) {
+                if (formData && formData.hasOwnProperty('name') && formData.name !== "") {
+                    firebase.updateUserListMap(uid, formData)
+                }
+            }
+        }
+    });
 
     // On Form Submit
     const onFormSubmit = (event) => {
         event.preventDefault();
-        console.log('data', formData)
         // Submit here
         firebase.doSignInAnonymouslyWithData(formData)
     };
@@ -32,7 +42,6 @@ function AuthForm({ firebase }) {
     //     return <input name={key} type={type} className={"wpcwv-input " + myClass} placeholder={placeholder} value={getData(key)} onChange={(e) => setData(key, e.target.value)} />
     // };
 
-    console.log('firebase', firebase)
     return (
         <div className="wpcwv-authPage">
             <CardComponent title="Sign Up Form">

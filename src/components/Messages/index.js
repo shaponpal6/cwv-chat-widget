@@ -14,7 +14,6 @@ function Messages({ firebase }) {
     const messagesEndRef = useRef(null)
 
     const scrollToBottom = () => {
-        console.log('messagesEndRef', messagesEndRef)
         messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
@@ -32,19 +31,15 @@ function Messages({ firebase }) {
     );
 
     useEffect(() => {
-        console.log('_clientData shapshot', _clientData)
         // console.log('_clientData shapshot', _clientData.data())
         if (_clientData) {
             let clientSnapshot = _clientData.data();
-            console.log('clientSnapshot init', clientSnapshot)
             if (clientSnapshot && clientSnapshot.hasOwnProperty('messages')) {
                 let clientMessageSnapshot = clientSnapshot.messages;
-                console.log('clientSnapshot message', clientMessageSnapshot)
                 // dispatch(setMessages(clientMessageSnapshot))
                 dispatch(setMessages(clientMessageSnapshot));
                 delete clientSnapshot.messages;
             }
-            console.log('clientSnapshot data', clientSnapshot)
             // dispatch(setClientData(clientSnapshot))
             dispatch(setClientData(clientSnapshot));
 
@@ -58,7 +53,7 @@ function Messages({ firebase }) {
 
 
     const cwvScrollerElement = (e) => {
-        console.log('-------cwvScrollerElement---------', e)
+        // console.log('-------cwvScrollerElement---------', e)
         // messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
     }
 
@@ -66,8 +61,8 @@ function Messages({ firebase }) {
     return (
         <RSC className="wpcwv-messageScrollbarWraper" id="wpcwv-messageScrollbarWraper" style={{ width: "100%", height: "100%" }} momentum={true} maximalThumbYSize={10} onScrollStart={cwvScrollerElement} >
             Messages page
-            {console.log('state>>>>>>', state)}
-            {_clientData && console.log('_clientData, loading, error', _clientData.data(), loading, error)}
+            {/* {console.log('state>>>>>>', state)} */}
+            {/* {_clientData && console.log('_clientData, loading, error', _clientData.data(), loading, error)} */}
             {loading && 'Message: Loading.....'}
             {error && 'Error: ' + error}
 
