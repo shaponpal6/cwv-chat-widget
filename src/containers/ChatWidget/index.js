@@ -6,13 +6,14 @@ import Operators from '../../components/Operators';
 import Operator from '../../components/Operator';
 import HeaderActionsButton from '../../components/HeaderActionsButton';
 import DraftMessageEditor from '../../components/DraftMessageEditor';
+import ButtonCircle from '../../components/ButtonCircle';
 
 
 import Messages from '../../components/Messages';
 import AuthForm from '../../components/AuthForm';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { withFirebase } from '../../firebase'
-import { ArrowLeft } from 'react-feather';
+import { ArrowLeft, X } from 'react-feather';
 import PropTypes from 'prop-types'
 
 
@@ -70,7 +71,7 @@ function Widget({ firebase }) {
 
   // Close Chat Widget
   const onCloseWidget = () => {
-    dispatch(doOnOff('chatWidget'));
+    dispatch(setRoute('chatIntro'));
   };
 
   // Chat Start Button
@@ -103,43 +104,44 @@ function Widget({ firebase }) {
   };
 
   return (
-    <div ref={cwvRef} className="wpcwv-chatWidget">
-      {/* ----------- Chat Header Container ------------ */}
-      <div className="wpcwv-chatHeader">
-        <div className="wpcwv-chatEvents">
-          <div className="wpcwv-chatEventsLeft">
-            {state.showWidget && (
-              <button onClick={onDashboardBack}>
-                <ArrowLeft />
-              </button>
-            )}
+    <div className="wpcwv-widgetWraper">
+      <div ref={cwvRef} className="wpcwv-chatWidget">
+        {/* ----------- Chat Header Container ------------ */}
+        <div className="wpcwv-chatHeader">
+          <div className="wpcwv-chatEvents">
+            <div className="wpcwv-chatEventsLeft">
+              {state.showWidget && (
+                <button onClick={onDashboardBack}>
+                  <ArrowLeft />
+                </button>
+              )}
+            </div>
+
+
+            {!user ?
+              <Operator operators={state.onChatOperators} />
+              : <Operators operators={state.operators} />}
+
+            <HeaderActionsButton onCloseWidget={onCloseWidget} />
+
           </div>
-
-
-          {!user ?
-            <Operator operators={state.onChatOperators} />
-            : <Operators operators={state.operators} />}
-
-          <HeaderActionsButton onCloseWidget={onCloseWidget} />
 
         </div>
 
-      </div>
+        {/* ------onScroll={handleScroll}----- Chat Body Container ------------ */}
+        <div className="wpcwv-chatBodyWraper">
 
-      {/* ------onScroll={handleScroll}----- Chat Body Container ------------ */}
-      <div className="wpcwv-chatBodyWraper">
-
-        {user ? <Messages /> : <AuthForm />}
+          {user ? <Messages /> : <AuthForm />}
 
 
-      </div>
-      {/* ----------- Chat Footer Container ------------ */}
-      <div className="wpcwv-FooterWraper">
-        <div className="wpcwv-widgetFooter">
-          <div onSubmit={onSend}>
-            {/* <input onChange={handleInput} value={message} /> */}
-            <DraftMessageEditor onMessageSave={onSend} />
-            {/* <textarea
+        </div>
+        {/* ----------- Chat Footer Container ------------ */}
+        <div className="wpcwv-FooterWraper">
+          <div className="wpcwv-widgetFooter">
+            <div onSubmit={onSend}>
+              {/* <input onChange={handleInput} value={message} /> */}
+              <DraftMessageEditor onMessageSave={onSend} />
+              {/* <textarea
               className="wpcwv-textarea"
               onChange={handleInput}
               spellCheck="false"
@@ -148,9 +150,11 @@ function Widget({ firebase }) {
               placeholder="This is a description."
             />
             <button type="submit">SEND</button> */}
+            </div>
           </div>
         </div>
       </div>
+      <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onCloseWidget} content="Close " image={<X size={17} />} /></div>
     </div>
   );
 }

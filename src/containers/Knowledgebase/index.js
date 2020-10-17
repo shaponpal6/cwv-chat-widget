@@ -24,8 +24,8 @@ function Knowledgebase() {
 
 
   return (
-    <div>
-      <div className="wpcwv-chatDashboard">
+    <div className="wpcwv-widgetWraper">
+      <div className="wpcwv-kbWraper">
         <div className="wpcwv-kbHeader">
           <span className="wpcwv-arrowBack" onClick={onDashboardBack}>
             <ArrowLeft />

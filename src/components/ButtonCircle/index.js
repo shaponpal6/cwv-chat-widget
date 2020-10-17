@@ -6,9 +6,10 @@ function ButtonCircle(props) {
     console.log('props', props)
     return (
         <button
-            className={"wpcwv-button wpcwv-widgetButton wpcwv-theme " + (props.setClassName ?? '')}
+            className={"wpcwv-button " + (props.type === "circle" ? ' wpcwv-widgetButton wpcwv-theme ' : '') + (props.setClassName ?? '')}
             onClick={props.onClick}
         >
+            {props.content && props.content}
             {props.image && props.image}
         </button>
     )

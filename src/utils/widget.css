@@ -34,7 +34,7 @@
 }
 
 
-.wpcwv-chatWidget, .wpcwv-chatDashboard {
+.wpcwv-widgetWraper {
     display: flex;
     flex-direction: column;
     width: 372px;
@@ -43,14 +43,21 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+    pointer-events: auto;
+    overflow: hidden;
+    z-index: 99999;
+}
+.wpcwv-chatWidget, .wpcwv-chatDashboard, .wpcwv-kbWraper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: calc(100% - 47px);
+    height: calc(100% - 47px);
     border-radius: 16px;
     pointer-events: auto;
-    -webkit-box-shadow: 0 8px 36px 0 rgba(0, 18, 46, .16);
     box-shadow: 0 8px 36px 0 rgba(0, 18, 46, .16);
     overflow: hidden;
     z-index: 99999;
-    -webkit-transition: all 2s cubic-bezier(.45, .05, .55, .95);
-    -o-transition: all 2s cubic-bezier(.45, .05, .55, .95);
     transition: all 2s cubic-bezier(.45, .05, .55, .95);
 }
 

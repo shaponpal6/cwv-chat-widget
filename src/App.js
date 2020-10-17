@@ -57,7 +57,7 @@ const ChatApp = () => {
 
             <div className="wpcwv-startButton">
 
-                <ButtonCircle onClick={onChatButtonClick} image={<MessageSquare size={37} />} />
+                <ButtonCircle type="circle" onClick={onChatButtonClick} image={<MessageSquare size={37} />} />
             </div>
         </div>
     );
