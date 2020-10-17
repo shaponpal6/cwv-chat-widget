@@ -112,7 +112,7 @@ class Firebase {
     this.auth.signInAnonymously().then(function (token) {
       if (token.hasOwnProperty('user')) {
         const uid = token.user.uid;
-        updateUserListMap(uid, data);
+        this.updateUserListMap(uid, data);
       }
       console.log('token>>>> ', token)
       console.log('data>>>> ', data)
