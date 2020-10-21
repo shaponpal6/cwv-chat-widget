@@ -49,7 +49,7 @@ function Messages({ firebase }) {
         // scrollToBottom()
 
         return () => { }
-    }, [loading])
+    }, [_clientData])
 
 
     const cwvScrollerElement = (e) => {
