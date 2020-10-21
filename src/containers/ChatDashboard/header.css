@@ -1,5 +1,21 @@
 span.wpcwv-dashboardCloseBtn {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+}
+.wpcwv-dashboardLogo {
+    display: inline-block;
+    padding: 10px 20px;
+    height: auto;
+    min-width: 20%;
+    max-width: 40%;
+    /* float: left; */
+}
+.wpcwv-dashboardTitle {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+}
+.wpcwv-dashboardDesc {
+    padding: 0 20px;
 }

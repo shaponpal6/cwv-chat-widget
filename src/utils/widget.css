@@ -1,5 +1,26 @@
 @import './color.css';
 @import './helpers.css'; 
+
+.wpcwv-container h1 {
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 2em;
+}
+.wpcwv-container h2 {
+    font-weight: bold;
+    font-size: 1.8em;
+    line-height: 1.8em;
+}
+.wpcwv-container h4 {
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1.4em;
+}
+.wpcwv-container p {
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.4em;
+}
 .wpcwv-theme{
     color: #fff;
     background: linear-gradient(135deg, rgb(42, 39, 218), rgb(0, 204, 255));
@@ -11,18 +32,18 @@
 }
 .wpcwv-startButton {
   position: absolute;
-  width: 112px;
-  height: 140px;
-  bottom: 12px;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 1;
-  right: 0px;
-  left: auto;
+    width: 112px;
+    height: 140px;
+    bottom: 20px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 99999;
+    right: 0px;
+    left: auto;
 }
 .wpcwv-widgetButton {
   width: 60px;
@@ -53,11 +74,10 @@
     width: 100%;
     max-height: calc(100% - 47px);
     height: calc(100% - 47px);
-    border-radius: 16px;
+    border-radius: 10px;
     pointer-events: auto;
-    box-shadow: 0 8px 36px 0 rgba(0, 18, 46, .16);
+    box-shadow: 5px 5px 15px rgba(0,0,0, .3);
     overflow: hidden;
     z-index: 99999;
-    transition: all 2s cubic-bezier(.45, .05, .55, .95);
 }
 

@@ -47,8 +47,6 @@ const ChatApp = () => {
 
     return (
         <div className="wpcwv-container">
-            <h2>Do not Think so much. Just work</h2>
-            <Camera />
 
             {(state.chatRoute === "chatWidget") && <FirebaseContext.Provider value={new Firebase()}><ChatWidget /></FirebaseContext.Provider>}
             {(state.chatRoute === "chatDashboard") && <ChatDashboard />}
@@ -56,7 +54,7 @@ const ChatApp = () => {
             {(state.chatRoute === "chatIntro" && state.welcomeBox) && <WelcomePage text="welcome!!" onClose={onChatWelcomeBoxClose} onChat={onChatButtonClick} />}
 
             {state.chatRoute === "chatIntro" && <div className="wpcwv-startButton">
-                <ButtonCircle type="circle" onClick={onChatButtonClick} image={<MessageSquare size={37} />} />
+                <ButtonCircle type="circle" onClick={onChatButtonClick} image={<MessageSquare size={36} />} />
             </div>}
         </div>
     );

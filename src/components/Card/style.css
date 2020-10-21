@@ -28,8 +28,8 @@
 
 
 .wpcwv-cardDesc{
-  padding : 1.5em ;
-  font-family: 'Poppins', sans-serif;
+  padding: 1.5em;
+    font-weight: bold;
 }
 .wpcwv-cardDesc h1{
   display:inline;

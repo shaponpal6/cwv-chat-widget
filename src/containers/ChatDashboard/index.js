@@ -5,7 +5,7 @@ import RSC from "react-scrollbars-custom";
 import Card from '../../components/Card'
 import './header.css'
 import './footer.css'
-import { X } from 'react-feather';
+import { X, ChevronDown, Twitter } from 'react-feather';
 import ButtonCircle from '../../components/ButtonCircle';
 
 function ChatDashboard() {
@@ -31,10 +31,10 @@ function ChatDashboard() {
       <div className="wpcwv-widgetWraper">
         <div className="wpcwv-chatDashboard">
           <div className="wpcwv-chatHeader">
-            <h2>Logo</h2>
-            <h2>Hi</h2>
-            <h4>We help your business grow by connecting you to your customers.</h4>
-            <span className="wpcwv-dashboardCloseBtn" onClick={onDashboardClose}><X /></span>
+            <div className="wpcwv-dashboardLogo"><Twitter size={36} /></div>
+            <h2 className="wpcwv-dashboardTitle">Hi there !</h2>
+            <h4 className="wpcwv-dashboardDesc">We help your business grow by connecting you to your customers.</h4>
+            <span className="wpcwv-dashboardCloseBtn" onClick={onDashboardClose}><ChevronDown /></span>
 
           </div>
           <div className="wpcwv-chatBodyWraper">

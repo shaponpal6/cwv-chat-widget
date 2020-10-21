@@ -27,7 +27,7 @@ const Operators = ({ operators }) => {
         </div>
         <div className="cwv-preChatText">
           <h3 className="cwv-operatorName">Start Conversation</h3>
-          <h3 className="cwv-operatorTitleAlt">Start Conversation2</h3>
+          <h3 className="cwv-operatorTitleAlt">CWV Chat</h3>
           <h4><time>A few minutes</time></h4>
         </div>
       </div>

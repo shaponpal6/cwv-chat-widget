@@ -3,3 +3,8 @@ span.wpcwv-dashboardCloseBtn {
     right: 10px;
     top: 10px;
 }
+.wpcwv-kbTitle {
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 10px;
+}

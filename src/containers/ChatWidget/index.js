@@ -117,7 +117,7 @@ function Widget({ firebase }) {
 
 
             {!user ?
-              <Operator operators={state.onChatOperators} />
+              <Operators operators={state.operators} />
               : <Operators operators={state.operators} />}
 
             <HeaderActionsButton onCloseWidget={onCloseWidget} />

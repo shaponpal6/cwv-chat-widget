@@ -2,16 +2,17 @@
     background-color: rgb(255, 255, 255);
     max-width: 340px;
     position: absolute;
-    bottom: 26px;
+    bottom: 40px;
     box-shadow: 5px 5px 15px rgba(0,0,0, .3);
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 9999;
     max-height: calc(100% - 76px);
     right: 48px;
     margin-left: 20px;
-    padding: 0px 24px;
-    border-radius: 12px;
+    padding: 0px 30px 11px 24px;
+    border-radius: 10px;
+    transition: all .4s;
 }
 .wpcwv-wmBody {
     max-width: 290px;
@@ -25,14 +26,29 @@
 }
 .wpcwv-wmBody h2 {
     margin-bottom: 10px;
+    font-weight: bold;
+    line-height: 1.4em;
+    font-size: 1.8em;
 }
 .wpcwv-wmHeader {
     float: right;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 0px;
+    opacity: 0;
+  transition: 0.8s;
 }
+.wpcwv-welcomeMessage:hover .wpcwv-wmHeader {
+    opacity: 1;
+    box-shadow: 5px 5px 25px rgba(0,0,0, .5);
+    transform: translate(0, -3px);
+}
+.wpcwv-welcomeMessage:hover {
+    box-shadow: 5px 5px 25px rgba(0,0,0, .5);
+    transform: translate(0, -3px);
+}
+
 .wpcwv-btnClose{
         margin-right: -20px;
     margin-top: 5px;

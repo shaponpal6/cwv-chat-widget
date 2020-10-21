@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import OptionsMenu from '../OptionsMenu';
-import { ArrowDownLeft, Settings, Bell, ArrowDown } from 'react-feather';
+import { ChevronDown, Settings, Bell, ArrowDown } from 'react-feather';
 import './style.css';
 
 function HeaderActionsButton({ onCloseWidget }) {
@@ -26,7 +26,7 @@ function HeaderActionsButton({ onCloseWidget }) {
                     className="wpcwv-chatWidgetClose"
                     onClick={() => onCloseWidget()}
                 >
-                    <ArrowDown />
+                    <ChevronDown />
                 </div>
             </div>
             {menuState && <OptionsMenu />}

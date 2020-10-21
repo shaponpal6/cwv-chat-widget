@@ -18,8 +18,7 @@ function ChatButtonCommonent({ onClose, onChat, text }) {
 
       <div className="wpcwv-wmBody">
         <h2> {text}</h2>
-        Hi there! I am Tidus a bot working for TIDIO. I can help you with one of
-        the topics listed below
+        Hi there! Welcome to our Site. We are here to help you! We are ready to help you grow your business!
       </div>
       <div className="wpcwv-wmFooter">
         <button className="wpcwv-button wpcwv-buttonPrimary wpcwv-aniSVGRight"
@@ -27,7 +26,7 @@ function ChatButtonCommonent({ onClose, onChat, text }) {
             onChat(e);
           }}
         >
-          <span>Start Chat</span> <ArrowRight />
+          <span>Let's Start</span>&nbsp;&nbsp;<ArrowRight />
         </button>
       </div>
     </div>

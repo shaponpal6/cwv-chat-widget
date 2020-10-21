@@ -45,9 +45,6 @@ function Messages({ firebase }) {
 
         }
 
-        // Message scroll position bottom
-        // scrollToBottom()
-
         return () => { }
     }, [_clientData])
 
