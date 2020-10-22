@@ -8,9 +8,6 @@ span.wpcwv-dashboardCloseBtn {
     display: inline-block;
     padding: 10px 20px;
     height: auto;
-    min-width: 20%;
-    max-width: 40%;
-    /* float: left; */
 }
 .wpcwv-dashboardTitle {
     padding: 5px 20px;
@@ -18,4 +15,20 @@ span.wpcwv-dashboardCloseBtn {
 }
 .wpcwv-dashboardDesc {
     padding: 0 20px;
+}
+.wpcwv-chatHeaderCollapse {
+    padding: 10px 14px 10px 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.wpcwv-chatHeaderCollapse .wpcwv-dashboardLogo {
+    float: left;
+    padding: 4px 6px;
+}
+.wpcwv-chatHeaderCollapse .wpcwv-dashboardTitle {
+    margin-bottom: 0;
+}
+.wpcwv-chatHeaderCollapse .wpcwv-dashboardDesc {
+    display: none;
 }

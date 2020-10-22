@@ -8,6 +8,11 @@
     justify-content: space-between;
     align-items: center;
 }
+.wpcwv-listTitle h4 {
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .wpcwv-listDesc {
     margin-top: 6px;
 }

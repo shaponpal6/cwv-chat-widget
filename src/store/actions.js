@@ -1,4 +1,4 @@
-import { SET_ROUTE, DASHBOARD_BACK, CHAT_WIDGET, ON_OFF, ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE } from './actionTypes';
+import { SET_ROUTE, DASHBOARD_BACK, CHAT_WIDGET, ON_OFF, ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE, WHEEL_DASH_STATE, SET_FAQS_DATA } from './actionTypes';
 
 export const setRoute = route => ({
     type: SET_ROUTE,
@@ -35,8 +35,18 @@ export const setClientData = messages => ({
     payload: messages,
 })
 
+export const setFaqsData = faqs => ({
+    type: SET_FAQS_DATA,
+    payload: faqs,
+})
+
 export const setWheelState = wheel => ({
     type: WHEEL_STATE,
+    payload: wheel,
+})
+
+export const setDashWheelState = wheel => ({
+    type: WHEEL_DASH_STATE,
     payload: wheel,
 })
 

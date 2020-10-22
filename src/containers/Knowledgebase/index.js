@@ -1,6 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import axios from "axios";
+import MiniSearch from 'minisearch'
+import { useMiniSearch } from 'react-minisearch'
 import { AppContext } from '../../store';
-import { setRoute } from '../../store/actions';
+import { setRoute, setFaqsData } from '../../store/actions';
+import Card from '../../components/Card'
 import RSC from "react-scrollbars-custom";
 import ListView from '../../components/ListView'
 import ButtonCircle from '../../components/ButtonCircle';
@@ -10,8 +14,54 @@ import ButtonCircle from '../../components/ButtonCircle';
 import './body.css'
 import { ArrowLeft, X } from 'react-feather';
 
+
+let miniSearch = new MiniSearch({
+  fields: ['title', 'body'], // fields to index for full-text search
+  storeFields: ['id', 'title', 'body'] // fields to return with search results
+})
+
+
+// Index all documents
+// miniSearch.addAll(documents)
+
+
 function Knowledgebase() {
   const [state, dispatch] = useContext(AppContext);
+
+  const [appState, setAppState] = useState({
+    loading: true,
+    faqs: [],
+  });
+
+  const handleSearchChange = (event) => {
+    console.log('event', event)
+    let value = event.target.value;
+    if (!value && value.length < 3) return
+    let results = (miniSearch.search(value))
+    console.log('results', results)
+    if (results) {
+      setAppState({
+        loading: false,
+        faqs: results
+      })
+    } else {
+      setAppState({
+        loading: false,
+        faqs: []
+      })
+    }
+
+  }
+
+
+  useEffect(() => {
+    setAppState({
+      loading: false,
+      faqs: state.faqs
+    })
+    miniSearch.addAll(state.faqs);
+
+  }, [state.faqs])
 
 
   // Close Chat Widget
@@ -39,6 +89,11 @@ function Knowledgebase() {
 
         </div>
         <div className="wpcwv-chatBodyWraper">
+
+          <div title="Search">
+            <input type="text" className="wpcwv-input" onChange={handleSearchChange} placeholder='Search…' />
+          </div>
+
           <RSC className="wpcwv-messageScrollbarWraper" id="wpcwv-messageScrollbarWraper" style={{ width: "100%", height: "100%", padding: "10px" }} momentum={true} maximalThumbYSize={10} >
 
 
@@ -47,54 +102,21 @@ function Knowledgebase() {
 
             {/* <h2>TRENDING QUESTIONS</h2> */}
 
+            {appState.loading && "Loading...."}
+            {appState.faqs && appState.faqs.map((faq) => {
+              return (
+                <ListView key={faq.id} title={faq.title}>
+                  <p>{faq.body}</p>
+                </ListView>
+              );
+            })}
 
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
-            <ListView title="Quertion Title">
-              <p>This is Content</p>
-            </ListView>
 
-            {/* </div> */}
 
-            {/* </Card> */}
-
+            {/* <ListView title="Quertion Title">
+              <p>This is Content</p>
+              <p>This is Content</p>
+            </ListView> */}
 
 
 

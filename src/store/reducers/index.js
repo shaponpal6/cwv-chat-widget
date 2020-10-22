@@ -1,4 +1,4 @@
-import { DASHBOARD_BACK, CHAT_WIDGET, ON_OFF, SET_ROUTE, ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE } from '../actionTypes';
+import { DASHBOARD_BACK, CHAT_WIDGET, ON_OFF, SET_ROUTE, ADD_MESSAGE, SET_MESSAGES, SET_CLIENT_DATA, WHEEL_STATE, WHEEL_DASH_STATE, SET_FAQS_DATA } from '../actionTypes';
 
 const OnOff = (state, key) => {
   switch (key) {
@@ -46,7 +46,7 @@ const Reducer = (state, action) => {
     }
 
     case SET_MESSAGES: {
-      const payload = Array.isArray(action.payload) ? action.payload : [];
+      const payload = (action.payload && Array.isArray(action.payload)) ? action.payload : [];
       return {
         ...state,
         messages: payload,
@@ -59,6 +59,13 @@ const Reducer = (state, action) => {
         clientData: payload,
       }
     }
+    case SET_FAQS_DATA: {
+      const payload = (action.payload && Array.isArray(action.payload)) ? action.payload : [];
+      return {
+        ...state,
+        faqs: payload,
+      }
+    }
 
     case WHEEL_STATE: {
       return {
@@ -66,6 +73,14 @@ const Reducer = (state, action) => {
         wheelState: action.payload,
       }
     }
+
+    case WHEEL_DASH_STATE: {
+      return {
+        ...state,
+        dashWheelState: action.payload,
+      }
+    }
+
     case 'REMOVE_POST':
       return {
         ...state,

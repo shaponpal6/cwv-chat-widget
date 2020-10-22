@@ -23,7 +23,7 @@ function ListViewComponent(props) {
 
     return (
         <div className="wpcwv-cardComponent wpcwv-listComponent" onClick={onListStateChange}>
-            {props.title && <div className="wpcwv-listTitle"><h2>{props.title}</h2><span>{listExpend ? <Minus size={12} /> : <Plus size={12} />}</span></div>}
+            {props.title && <div className="wpcwv-listTitle"><h4>{props.title}</h4><span>{listExpend ? <Minus size={12} /> : <Plus size={12} />}</span></div>}
 
             {listExpend &&
                 <div className="wpcwv-listDesc">

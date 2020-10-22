@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { AppContext } from '../../store';
-import { setRoute } from '../../store/actions';
+import axios from "axios";
+import { setRoute, setDashWheelState, setFaqsData } from '../../store/actions';
 import RSC from "react-scrollbars-custom";
 import Card from '../../components/Card'
 import './header.css'
@@ -11,8 +12,46 @@ import ButtonCircle from '../../components/ButtonCircle';
 function ChatDashboard() {
   const [state, dispatch] = useContext(AppContext);
 
+  // Ref for scroll
+  const cwvDashdRef = useRef();
+  const [scroll, setWheel] = useState('up');
+  const [isScrollingState, setIsScrollingState] = useState(false);
+  var isScrolling;
 
-  // Close Chat Widget
+  const handleScroll = (event) => {
+    if (!isScrollingState) {
+      dispatch(setDashWheelState(event.deltaY < 0 ? 'up' : 'down'));
+      setWheel(event.deltaY < 0 ? 'up' : 'down');
+    }
+    setIsScrollingState(true)
+    window.clearTimeout(isScrolling);
+    // Set a timeout to run after scrolling ends
+    isScrolling = setTimeout(function () {
+      setIsScrollingState(false)
+    }, 1000);
+  };
+
+  useLayoutEffect(() => {
+    cwvDashdRef.current.addEventListener('mousewheel', handleScroll);
+
+    return () => {
+      cwvDashdRef.current.removeEventListener('mousewheel', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    let request = axios.get(`${state.apiUrl}posts`);
+    request.then(function (response) {
+      console.log('response', response)
+      console.log('data', response.data)
+      dispatch(setFaqsData(response.data))
+    })
+  }, [])
+
+
+
+
+  // Close Chat Widget 
   const onWidgetBack = () => {
     dispatch(setRoute('chatWidget'));
   };
@@ -28,9 +67,9 @@ function ChatDashboard() {
 
   return (
     <div>
-      <div className="wpcwv-widgetWraper">
+      <div ref={cwvDashdRef} className="wpcwv-widgetWraper">
         <div className="wpcwv-chatDashboard">
-          <div className="wpcwv-chatHeader">
+          <div className={"wpcwv-chatHeader " + (scroll === "down" ? "wpcwv-chatHeaderCollapse" : "")}>
             <div className="wpcwv-dashboardLogo"><Twitter size={36} /></div>
             <h2 className="wpcwv-dashboardTitle">Hi there !</h2>
             <h4 className="wpcwv-dashboardDesc">We help your business grow by connecting you to your customers.</h4>
@@ -62,7 +101,7 @@ function ChatDashboard() {
           </div>
 
           <div className="wpcwv-FooterWraper wpcwv-dashboardFooter">
-            We Are Nothing
+            I'm Nothing
 
         </div>
         </div>

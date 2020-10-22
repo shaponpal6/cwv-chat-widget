@@ -7,6 +7,9 @@ const INITIAL = {
   isLogedIn: true,
   chatButton: true,
   wheelState: 'up',
+  dashWheelState: 'up',
+  faqs: [],
+  apiUrl: 'https://jsonplaceholder.typicode.com/',
   operators: [
     { name: 'Shapon Pal', avater: '' },
     { name: 'Shapon Pal2', avater: '' },
