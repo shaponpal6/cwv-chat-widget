@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import axios from "axios";
 import MiniSearch from 'minisearch'
-import { useMiniSearch } from 'react-minisearch'
 import { AppContext } from '../../store';
 import { setRoute, setFaqsData } from '../../store/actions';
 import Card from '../../components/Card'

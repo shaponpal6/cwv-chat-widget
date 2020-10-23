@@ -4,13 +4,51 @@ import axios from "axios";
 import { setRoute, setDashWheelState, setFaqsData } from '../../store/actions';
 import RSC from "react-scrollbars-custom";
 import Card from '../../components/Card'
+import doSearch from '../../functions/doSearch'
+import useFetch from '../../hooks/useFetch'
 import './header.css'
 import './footer.css'
+import ListView from '../../components/ListView'
 import { X, ChevronDown, Twitter } from 'react-feather';
 import ButtonCircle from '../../components/ButtonCircle';
 
+
+
+const Search = () => {
+  const [showResults2, setShowResults] = useState(false)
+  const [searchResults, doSearchHandler] = doSearch()
+  const onClick = () => setShowResults(true)
+  console.log('searchResult', searchResults)
+  return (
+    <div>
+      <input type="text" className="wpcwv-input" placeholder="Search " onChange={doSearchHandler} />
+
+      { showResults2 ? <Results /> : null}
+      <div id="results" className="search-results">
+        {searchResults.results && searchResults.results.map((faq) => {
+          return (
+            <ListView key={faq.id} title={faq.title}>
+              <p>{faq.body}</p>
+            </ListView>
+          );
+        })}
+      </div>
+
+    </div>
+  )
+}
+
+const Results = () => (
+  <div id="results" className="search-results">
+    Some Results
+  </div>
+)
+
+
 function ChatDashboard() {
   const [state, dispatch] = useContext(AppContext);
+  let url = `${state.apiUrl}posts`;
+  const [status, fetchData] = useFetch(url);
 
   // Ref for scroll
   const cwvDashdRef = useRef();
@@ -40,13 +78,17 @@ function ChatDashboard() {
   }, []);
 
   useEffect(() => {
-    let request = axios.get(`${state.apiUrl}posts`);
-    request.then(function (response) {
-      console.log('response', response)
-      console.log('data', response.data)
-      dispatch(setFaqsData(response.data))
-    })
-  }, [])
+
+    dispatch(setFaqsData(fetchData))
+
+
+    // let request = axios.get(`${state.apiUrl}posts`);
+    // request.then(function (response) {
+    //   console.log('response', response)
+    //   console.log('data', response.data)
+    //   dispatch(setFaqsData(response.data))
+    // })
+  }, [fetchData])
 
 
 
@@ -84,7 +126,7 @@ function ChatDashboard() {
               </Card>
 
               <Card title="Find your answer now">
-                <input type="text" className="wpcwv-input" />
+                <Search />
               </Card>
 
 
