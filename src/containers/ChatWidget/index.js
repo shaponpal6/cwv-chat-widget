@@ -1,9 +1,8 @@
 import React, { useContext, useState, useRef, useLayoutEffect } from 'react';
 import uniqid from 'uniqid';
 import { AppContext } from '../../store';
-import { setRoute, doOnOff, addMessage, setWheelState } from '../../store/actions';
+import { setRoute, addMessage, setWheelState } from '../../store/actions';
 import Operators from '../../components/Operators';
-import Operator from '../../components/Operator';
 import HeaderActionsButton from '../../components/HeaderActionsButton';
 import DraftMessageEditor from '../../components/DraftMessageEditor';
 import ButtonCircle from '../../components/ButtonCircle';
@@ -58,10 +57,6 @@ function Widget({ firebase }) {
   }, []);
 
 
-
-
-
-
   // Close Chat Widget
   const onDashboardBack = () => {
     dispatch(setRoute('chatDashboard'));
@@ -79,8 +74,6 @@ function Widget({ firebase }) {
     const replay = message;
     setMessage('');
     console.log('message>>', message);
-    // let data = { id: Math.random(), text: message + Math.random() };
-    // setMessages((ownState) => [...ownState, data]);
     const { uid, displayName, photoURL } = firebase.getCurrentUser();
     const messageObj = {
       key: uniqid('sp'),
@@ -94,11 +87,6 @@ function Widget({ firebase }) {
     }
     dispatch(addMessage(messageObj));
     firebase.setMessage(messageObj);
-  };
-
-  const handleInput = (e) => {
-    const { value } = e.target;
-    setMessage(value);
   };
 
   return (
