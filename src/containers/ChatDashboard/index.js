@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { AppContext } from '../../store';
-import axios from "axios";
+// import axios from "axios";
 import { setRoute, setDashWheelState, setFaqsData } from '../../store/actions';
 import RSC from "react-scrollbars-custom";
 import Card from '../../components/Card'
