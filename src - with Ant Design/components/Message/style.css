@@ -85,19 +85,18 @@
     margin: 0 5px;
 }
 .wpcwv-senderMessage {
-    color: #333;
+    color: rgb(6, 19, 43);
     background: rgb(240, 242, 247);
-    font-size: 1.6em;
+    font-size: 15px;
+    overflow-wrap: break-word;
     display: inline-block;
     clear: both;
     position: relative;
-    padding: 5px 10px;
-    border-radius: 3px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    transition: margin 0.28s ease-in-out 0s;
     line-height: 145%;
     word-break: break-word;
     white-space: pre-line;
     overflow-wrap: break-word;
-}
-.wpcwv-client{
-    float: right;
 }

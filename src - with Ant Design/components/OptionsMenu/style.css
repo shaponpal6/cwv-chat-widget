@@ -1,0 +1,19 @@
+.cwv-OptionsMenu {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background: #31f89b;
+    padding: 10px;
+    border-radius: 4px;
+}
+.cwv-OptionsMenu button {
+    background: #9C27B0;
+    margin: 2px;
+    padding: 4px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+}

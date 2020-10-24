@@ -1,0 +1,40 @@
+
+.wpcwv-FooterWraper {
+    width: 100%;
+    /* position: absolute;
+    bottom: 0; */
+}
+.wpcwv-widgetFooter {
+    width: auto;
+    background: #1e90ff;
+    position: relative;
+    padding: 10px 15px;
+    display: flex;
+}
+.wpcwv-messageForm {
+    display: flex;
+    /* background: #F44336; */
+    /* padding: 10px; */
+    width: 100%;
+    box-sizing: border-box;
+}
+.wpcwv-textarea {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: #777;
+    outline: none;
+    resize: none;
+    border-radius: 0;
+    width: 100%;
+    box-shadow: none;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.wpcwv-buttonSend{
+    background:#31f89b;
+    padding: 11px;
+}

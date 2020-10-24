@@ -85,7 +85,7 @@ function Widget({ firebase }) {
     const messageObj = {
       key: uniqid('sp'),
       text: replay,
-      type: 'client',
+      type: 'admin',
       status: 0,
       senderID: uid,
       name: displayName,
