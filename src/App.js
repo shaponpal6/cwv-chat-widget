@@ -8,6 +8,7 @@ import { MessageSquare } from 'react-feather';
 import { setRoute, doOnOff } from './store/actions'
 import Knowledgebase from './containers/Knowledgebase';
 import ButtonCircle from './components/ButtonCircle';
+
 import './utils/widget.css';
 
 const ChatApp = () => {
@@ -31,6 +32,8 @@ const ChatApp = () => {
     };
 
     return (
+
+
         <div className="wpcwv-container">
 
             {(state.chatRoute === "chatWidget") && <FirebaseContext.Provider value={new Firebase()}><ChatWidget /></FirebaseContext.Provider>}
@@ -42,6 +45,7 @@ const ChatApp = () => {
                 <ButtonCircle type="circle" onClick={onChatButtonClick} image={<MessageSquare size={36} />} />
             </div>}
         </div>
+
     );
 };
 
