@@ -9,8 +9,11 @@ import ButtonCircle from '../../components/ButtonCircle';
 // import Card from '../../components/Card'
 // import './header.css'
 // import './footer.css'
-import './body.css'
+// import './body.css'
 import { ArrowLeft, X } from 'react-feather';
+
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
 
 
 let miniSearch = new MiniSearch({
@@ -77,6 +80,8 @@ function Knowledgebase() {
 
 
   return (
+    <>
+    <Global styles={converted}/>
     <div className="wpcwv-widgetWraper">
       <div className="wpcwv-kbWraper">
         <div className="wpcwv-kbHeader">
@@ -129,6 +134,7 @@ function Knowledgebase() {
       <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div>
 
     </div>
+    </>
   )
 }
 

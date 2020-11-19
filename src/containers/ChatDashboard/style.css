@@ -1,3 +1,43 @@
+span.wpcwv-dashboardCloseBtn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+}
+.wpcwv-dashboardLogo {
+    display: inline-block;
+    padding: 10px 20px;
+    height: auto;
+}
+.wpcwv-dashboardTitle {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+}
+.wpcwv-dashboardDesc {
+    padding: 0 20px;
+}
+.wpcwv-chatHeaderCollapse {
+    padding: 10px 14px 10px 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.wpcwv-chatHeaderCollapse .wpcwv-dashboardLogo {
+    float: left;
+    padding: 4px 6px;
+}
+.wpcwv-chatHeaderCollapse .wpcwv-dashboardTitle {
+    margin-bottom: 0;
+}
+.wpcwv-chatHeaderCollapse .wpcwv-dashboardDesc {
+    display: none;
+}
 
-
-
+.wpcwv-dashboardFooter {
+    padding: 8px;
+  text-align: center;
+  background: #1e90ff;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}

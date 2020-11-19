@@ -9,7 +9,10 @@ import { setRoute, doOnOff } from './store/actions'
 import Knowledgebase from './containers/Knowledgebase';
 import ButtonCircle from './components/ButtonCircle';
 
-import './utils/widget.css';
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import  converted  from './containers/ChatWidget/style';
+
+// import './utils/widget.css';
 
 const ChatApp = () => {
     const [state, dispatch] = useContext(AppContext);
@@ -34,6 +37,8 @@ const ChatApp = () => {
     return (
 
 
+        <>
+        <Global styles={converted}/>
         <div className="wpcwv-container">
 
             {(state.chatRoute === "chatWidget") && <FirebaseContext.Provider value={new Firebase()}><ChatWidget /></FirebaseContext.Provider>}
@@ -45,6 +50,7 @@ const ChatApp = () => {
                 <ButtonCircle type="circle" onClick={onChatButtonClick} image={<MessageSquare size={36} />} />
             </div>}
         </div>
+        </>
 
     );
 };

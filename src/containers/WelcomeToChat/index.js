@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ArrowRight, XCircle } from 'react-feather';
-import './style.css';
+
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
 
 function ChatButtonCommonent({ onClose, onChat, text }) {
+  
   return (
+
+    <>
+      <Global styles={converted}/>
     <div className="wpcwv-welcomeMessage">
       <span className="wpcwv-wmHeader">
         <button className="wpcwv-button wpcwv-btnClose"
@@ -30,6 +36,7 @@ function ChatButtonCommonent({ onClose, onChat, text }) {
         </button>
       </div>
     </div>
+    </>
   );
 }
 

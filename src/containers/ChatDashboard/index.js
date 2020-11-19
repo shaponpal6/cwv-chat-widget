@@ -6,13 +6,14 @@ import RSC from "react-scrollbars-custom";
 import Card from '../../components/Card'
 import doSearch from '../../functions/doSearch'
 import useFetch from '../../hooks/useFetch'
-import './header.css'
-import './footer.css'
+// import './header.css'
+// import './footer.css'
 import ListView from '../../components/ListView'
 import { X, ChevronDown, Twitter } from 'react-feather';
 import ButtonCircle from '../../components/ButtonCircle';
 
-
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
 
 const Search = () => {
   const [showResults2, setShowResults] = useState(false)
@@ -108,6 +109,8 @@ function ChatDashboard() {
   };
 
   return (
+    <>
+    <Global styles={converted}/>
     <div>
       <div ref={cwvDashdRef} className="wpcwv-widgetWraper">
         <div className="wpcwv-chatDashboard">
@@ -156,6 +159,7 @@ function ChatDashboard() {
       {/* <ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} image={<X size={37} />} /> */}
 
     </div>
+    </>
   )
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
-import './style.css'
+// import './style.css'
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
 
 function CardComponent(props) {
     // console.log('props', props)
@@ -13,6 +15,8 @@ function CardComponent(props) {
     });
 
     return (
+        <>
+    <Global styles={converted}/>
         <div className="wpcwv-cardComponent">
             {props.image &&
                 <div className="wpcwv-cardImageCover">
@@ -30,6 +34,7 @@ function CardComponent(props) {
                 <path d="M0 9H22M12 1.5L20.9333 8.2C21.4667 8.6 21.4667 9.4 20.9333 9.8L12 16.5" stroke="white" strokeWidth="3" />
             </svg></button></div>}
         </div>
+        </>
     )
 }
 

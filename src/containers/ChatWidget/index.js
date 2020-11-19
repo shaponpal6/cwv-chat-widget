@@ -15,11 +15,11 @@ import { withFirebase } from '../../firebase'
 import { ArrowLeft, X } from 'react-feather';
 import PropTypes from 'prop-types'
 
-
-import './style.css';
-import './header.css';
-import './body.css';
-import './footer.css';
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
+// import './header.css';
+// import './body.css';
+// import './footer.css';
 
 function Widget({ firebase }) {
   const cwvRef = useRef();
@@ -90,6 +90,8 @@ function Widget({ firebase }) {
   };
 
   return (
+    <>
+      <Global styles={converted}/>
     <div className="wpcwv-widgetWraper">
       <div ref={cwvRef} className="wpcwv-chatWidget">
         {/* ----------- Chat Header Container ------------ */}
@@ -142,6 +144,7 @@ function Widget({ firebase }) {
       </div>
       <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onCloseWidget} content="Close " image={<X size={17} />} /></div>
     </div>
+    </>
   );
 }
 Widget.propTypes = {

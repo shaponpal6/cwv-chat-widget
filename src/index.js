@@ -7,7 +7,9 @@ import { IFrame, Frame, WithEmotion } from './containers/IFrame'
 import styled2 from 'styled-components'
 import styled from '@emotion/styled'
 import { jsx, css, Global, ClassNames } from '@emotion/core'
-import index from './index.css';
+import  converted  from './utils/widget';
+import rootStyle from './style.js';
+// import converted from './containers/ChatWidget/style';
 
 import * as serviceWorker from "./serviceWorker";
 
@@ -29,21 +31,25 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
+
 const color = 'white'
 render(
     <React.StrictMode>
-        <WithEmotion id="id#hss" head={<title>CWV App</title>} style={{ width: '400px', height: '100vh', position: 'absolute', right: 0, bottom: 0 }}>
+        <WithEmotion id="id#hss" head={<title>CWV App</title>} style={{ width: '400px', height: '100vh', position: 'absolute', right: 0, bottom: 0, border:0 }}>
             <AppContextProvider>
-                <Title>H11111111111</Title>
-                <Button>dhhhhhhhhhhhhhhhhhsj</Button>
+                {/* <Title>H11111111111</Title>
+                <Button>dhhhhhhhhhhhhhhhhhsj</Button> */}
 
+                <Global styles={rootStyle}/>
+                <Global styles={converted}/>
                 <Global
                     styles={{
                         body: {
                             margin: 0,
-                            padding: 0
+                            padding: 0,
+                            boxSizing: 'border-box'
                         },
-                        'hh': {
+                        '.hh': {
                             padding: '32px',
                             backgroundColor: 'hotpink',
                             fontSize: '24px'
@@ -52,7 +58,7 @@ render(
                     }}
                 />
 
-                <p className="hh"> HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH </p>
+                {/* <p className="hh"> HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH </p> */}
 
                 <ChatApp />
             </AppContextProvider>

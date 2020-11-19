@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Minus, Plus } from 'react-feather';
-import './style.css'
+// import './style.css'
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
 
 function ListViewComponent(props) {
     const [listExpend, setListExpend] = useState(false);
@@ -22,6 +24,8 @@ function ListViewComponent(props) {
 
 
     return (
+        <>
+    <Global styles={converted}/>
         <div className="wpcwv-cardComponent wpcwv-listComponent" onClick={onListStateChange}>
             {props.title && <div className="wpcwv-listTitle"><h4>{props.title}</h4><span>{listExpend ? <Minus size={12} /> : <Plus size={12} />}</span></div>}
 
@@ -32,6 +36,7 @@ function ListViewComponent(props) {
                 </div>
             }
         </div>
+        </>
     )
 }
 
