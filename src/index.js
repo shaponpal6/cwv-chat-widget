@@ -64,5 +64,3 @@ render(
 
 
 serviceWorker.unregister();
-
-

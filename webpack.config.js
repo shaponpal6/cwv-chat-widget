@@ -27,10 +27,10 @@ module.exports = {
           }
         }
       },
-      // {
-      //   test: /.css$/,
-      //   use: ["style-loader", "css-loader"]
-      // }
+      {
+        test: /.css$/,
+        use: ["style-loader", "css-loader"]
+      }
     ]
   },
   resolve: {
@@ -43,7 +43,7 @@ module.exports = {
     new DotenvWebpack()
   ],
   devServer: {
-    port: 3001,
+    port: 3000,
     host: '0.0.0.0',
     hot: true
   }
