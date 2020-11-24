@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Ava from '../../images/avater.png';
-import './style.css'
+// import './style.css';
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
 
 function Message({ message }) {
   const [showTime, setShowTime] = useState(false)
@@ -12,6 +14,8 @@ function Message({ message }) {
   const avater = message.photoURL ?? Ava;
   const typeClass = (message.type === "client") ? "wpcwv-client" : "wpcwv-admin";
   return (
+    <>
+    <Global styles={converted}/>
     <div className={"wpcwv-messageWrapper " + typeClass} >
       {message.type !== "client" &&
         <figure className="wpcwv-avaterWrapper">
@@ -32,6 +36,7 @@ function Message({ message }) {
       </div>
       <div className="wpcwv-messageDivider"></div>
     </div>
+    </>
   );
 }
 

@@ -19,13 +19,8 @@ const doSearch = () => {
         results: [],
     });
 
-    console.log('state.faqs', state.faqs)
-    console.log('state.faqs', !!state.faqs)
-    console.log('state.faqs', !!state.faqs.length)
-
     useEffect(() => {
         if (!state.faqs && !state.faqs.length) {
-            console.log('fatching....', url)
             let url = `${state.apiUrl}posts`;
             const [status, data] = useFetch(url);
             if (status === "success") {
@@ -36,11 +31,9 @@ const doSearch = () => {
     }, [state.faqs]);
 
     const doSearchHandler = (event) => {
-        console.log('event', event)
         let value = event.target.value;
         if (!value && value.length < 3) return
         let results = miniSearch.search(value);
-        console.log('results', results)
         if (results) {
             setSearchResult({
                 loading: false,

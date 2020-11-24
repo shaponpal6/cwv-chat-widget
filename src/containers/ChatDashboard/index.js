@@ -14,6 +14,7 @@ import ButtonCircle from '../../components/ButtonCircle';
 
 import { jsx, css, Global, ClassNames } from '@emotion/core'
 import converted from './style.js';
+import Input from '../../components/Input';
 
 const Search = () => {
   const [showResults2, setShowResults] = useState(false)
@@ -22,7 +23,7 @@ const Search = () => {
   console.log('searchResult', searchResults)
   return (
     <div>
-      <input type="text" className="wpcwv-input" placeholder="Search " onChange={doSearchHandler} />
+      <Input type="text" className="wpcwv-input" placeholder="Search " onChange={doSearchHandler} />
 
       { showResults2 ? <Results /> : null}
       <div id="results" className="search-results">
@@ -41,7 +42,7 @@ const Search = () => {
 
 const Results = () => (
   <div id="results" className="search-results">
-    Some Results
+    No Results
   </div>
 )
 
@@ -145,10 +146,9 @@ function ChatDashboard() {
             </RSC>
           </div>
 
-          <div className="wpcwv-FooterWraper wpcwv-dashboardFooter">
+          {/* <div className="wpcwv-FooterWraper wpcwv-dashboardFooter">
             I'm Nothing
-
-        </div>
+          </div> */}
         </div>
         <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div>
 

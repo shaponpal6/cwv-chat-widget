@@ -89,6 +89,14 @@ const converted = {
     borderImage: "initial",
     outline: "none"
   },
+  ".wpcwv-buttonDashboardClose": {
+    float: "right",
+    background: "#31f89b",
+    padding: "2px 8px",
+    color: "#fff",
+    borderRadius: "4px",
+    marginTop: "3px"
+  },
   ".wpcwv-buttonPrimary": {
     backgroundColor: "dodgerblue",
     padding: "10px 25px",

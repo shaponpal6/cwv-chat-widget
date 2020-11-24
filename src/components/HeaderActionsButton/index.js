@@ -2,13 +2,20 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import OptionsMenu from '../OptionsMenu';
 import { ChevronDown, Settings, Bell, ArrowDown } from 'react-feather';
-import './style.css';
+// import './style.css';
+import styled from '@emotion/styled'
+
+const Div = styled.div`
+display: flex;
+justify-content: space-between;
+margin-left: 6px;
+`
 
 function HeaderActionsButton({ onCloseWidget }) {
     const [menuState, setMenuState] = useState(false);
     return (
         <div className="wpcwv-chatEventsRight">
-            <div className="wpcwv-chatActions">
+            <Div className="wpcwv-chatActions">
                 <div
                     className="wpcwv-chatEventsMenu"
                     onClick={() => setMenuState(!menuState)}
@@ -28,7 +35,7 @@ function HeaderActionsButton({ onCloseWidget }) {
                 >
                     <ChevronDown />
                 </div>
-            </div>
+            </Div>
             {menuState && <OptionsMenu />}
         </div>
 

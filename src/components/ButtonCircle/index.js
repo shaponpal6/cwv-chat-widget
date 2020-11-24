@@ -13,6 +13,7 @@ function ButtonCircle(props) {
             {props.image && props.image}
         </button>
     )
-}
+} 
 
 export default ButtonCircle
+

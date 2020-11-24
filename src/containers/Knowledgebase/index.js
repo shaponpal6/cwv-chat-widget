@@ -14,6 +14,8 @@ import { ArrowLeft, X } from 'react-feather';
 
 import { jsx, css, Global, ClassNames } from '@emotion/core'
 import converted from './style.js';
+import Input from '../../components/Input';
+import ChatStartButton from '../../components/ChatStartButton';
 
 
 let miniSearch = new MiniSearch({
@@ -94,7 +96,7 @@ function Knowledgebase() {
         <div className="wpcwv-chatBodyWraper">
 
           <div title="Search">
-            <input type="text" className="wpcwv-input" onChange={handleSearchChange} placeholder='Search…' />
+            <Input type="text" className="wpcwv-input" onChange={handleSearchChange} placeholder='Search…' />
           </div>
 
           <RSC className="wpcwv-messageScrollbarWraper" id="wpcwv-messageScrollbarWraper" style={{ width: "100%", height: "100%", padding: "10px" }} momentum={true} maximalThumbYSize={10} >
@@ -127,9 +129,8 @@ function Knowledgebase() {
           </RSC>
         </div>
 
-        <div className="wpcwv-FooterWraper wpcwv-dashboardFooter" onClick={onLiveChat}>
-          Live Chat with us
-        </div>
+        <ChatStartButton text="Live Chat with us" onClick={onLiveChat}/>
+        
       </div>
       <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div>
 
