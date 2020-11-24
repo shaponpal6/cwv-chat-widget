@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const DotenvWebpack = require("dotenv-webpack");
 const path = require("path");
+// Try the environment variable, otherwise use root
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 module.exports = {
   entry: "./src/index.js",

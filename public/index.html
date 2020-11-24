@@ -1,22 +1,1033 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet"> -->
-  <!-- <link href="./assets/fronts/Oxygen/Oxygen-Bold.ttf" rel="stylesheet"> -->
-  <!-- <link href="./assets/fronts/Oxygen/Oxygen-Light.ttf" rel="stylesheet"> -->
-  <!-- <link href="./assets/fronts/Oxygen/Oxygen-Regular.ttf" rel="stylesheet"> -->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  <link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
-  <title>Awesome Chat Widget for WordPress</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="public/https://www.googletagmanager.com/gtag/js?id=G-LFRHYCFLCJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-LFRHYCFLCJ');
+    </script>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mr. Assistant - Artificial Intelligence Chat Engine for WordPress"/>
+    <!-- SITE TITLE -->
+    <title>Mr. Assistant - Artificial Intelligence Chat Engine for WordPress</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="public/assets/images/mr.png">
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="public/assets/css/animate.css">
+    <!-- Latest Bootstrap min CSS -->
+    <link rel="stylesheet" href="public/assets/bootstrap/css/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="public/https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet"    href="public//assets/css/font-awesome.min.css">
+    <!-- ionicons CSS -->
+    <!--<link rel="stylesheet" href="public/assets/css/ionicons.min.css">-->
+    <!-- cryptocoins CSS -->
+    <!--<link rel="stylesheet" href="public/assets/css/cryptocoins.css">-->
+    <!--- owl carousel CSS-->
+    <link rel="stylesheet"    href="public//assets/owlcarousel/css/owl.carousel.min.css">
+    <link rel="stylesheet"    href="public//assets/owlcarousel/css/owl.theme.default.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet"    href="public//assets/css/magnific-popup.css">
+    <!--<link rel="stylesheet" href="public/assets/css/spop.min.css">-->
+    <!-- Style CSS -->
+    <link rel="stylesheet"    href="public//assets/css/style.css">
+    <link rel="stylesheet"   href="public//assets/css/responsive.css">
+    <!-- Color CSS -->
+    <link id="layoutstyle"    href="public/assets/color/theme.css">
+    <link    href="public/assets/css/custom.css">
+    <style>
+        /*.hide {*/
+        /*    display: none;*/
+        /*}*/
+        /*.v_dark .box_wrap {*/
+        /*    background-color: #121833;*/
+        /*    border-radius: 3px;*/
+        /*}*/
+    </style>
 </head>
 
-<body>
-  <div id="cwvChatWidgetRoot"></div>
-</body>
+<body class="v_dark" data-spy="scroll" data-offset="110">
 
+<!-- START LOADER -->
+<div id="loader-wrapper">
+    <div id="loading-center-absolute">
+        <div class="object" id="object_four"></div>
+        <div class="object" id="object_three"></div>
+        <div class="object" id="object_two"></div>
+        <div class="object" id="object_one"></div>
+    </div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
+<!-- END LOADER -->
+
+<!-- START HEADER -->
+<header class="header_wrap fixed-top">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg hide">
+            <a class="navbar-brand page-scroll animation" href="public/#home_section" data-animation="fadeInDown"
+               data-animation-delay="1s">
+                <img class="logo_light" src="public/./assets/images/mr-assistant-logo.png" alt="logo"/>
+                <img class="logo_dark" src="public/./assets/images/mr-assistant-logo.png" alt="logo"/>
+            </a>
+            <button class="navbar-toggler animation" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation" data-animation="fadeInDown" data-animation-delay="1.1s">
+                <span class="ion-android-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="1.1s">
+                        <a class="nav-link page-scroll nav_item active" href="public/#">Home</a>
+                    </li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="1.3s"><a
+                            class="nav-link page-scroll nav_item" href="public/#about">About</a></li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="1.4s"><a
+                            class="nav-link page-scroll nav_item" href="public/#chat-with-visitors">Features</a></li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="1.5s"><a
+                            class="nav-link page-scroll nav_item" href="public/#technology ">Technology</a></li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="1.6s"><a
+                            class="nav-link page-scroll nav_item" target="_blank" href="public/https://docs.mrassistant.tech/">Documentation</a></li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="1.7s"><a
+                            class="nav-link page-scroll nav_item" href="public/#faq">FAQ</a></li>
+                </ul>
+                <ul class="navbar-nav nav_btn align-items-center">
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="1.9s">
+                        <div class="lng_dropdown">
+                            <select name="countries" id="lng_select">
+                                <option value='v1' data-image="assets/images/mr.png" data-title="Version 1.0">1.0
+                                </option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="animation" data-animation="fadeInDown" data-animation-delay="2s"><a
+                            class="btn btn-default btn-radius nav_item" href="public/#">Buy Now</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- END HEADER -->
+
+<!-- START SECTION BANNER -->
+<section id="home_section" class="section_banner bg_black_dark" data-z-index="1" data-parallax="scroll"
+         data-image-src="public/assets/images/banner_bg2.png">
+    <canvas id="banner_canvas" class="transparent_effect fixed"></canvas>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 order-lg-first">
+                <div class="margin-top-20 banner_text_s2 text_md_center ">
+                    <h5 style="display:none;" class="animation presale_txt text-white" data-animation="fadeInUp" data-animation-delay="1.3s">
+                        <mark class="gradient_box"><span class="iconify" data-icon="bx:bxs-badge-dollar"></span>
+                            Discover new ways to live supporting your visitors.
+                        </mark>
+                    </h5>
+                    <h1 class="animation text-white" data-animation="fadeInUp" data-animation-delay="1.1s">
+                        Mr. Assistant Chatbot is a versatile WordPress Plugin for 24/7 Live Support.
+                    </h1>
+                    <p class="lead animated fadeInUp" data-animate="fadeInUp" data-delay=".9" style="visibility: visible; animation-delay: 0.9s;">An Innovative Artificial Intelligence Live ChatBot with a search engine, knowledge base, and unlimited custom Actions.  It can empower your search and boost your seals. Actions let users get things done through a conversational interface that can range from a quick command.</p>
+                    <div class="btn_group pt-2 pb-3 animation hide" data-animation="fadeInUp"
+                         data-animation-delay="1.4s">
+                        <a href="public/https://shop.mrassistant.tech/" class="btn btn-default btn-radius nav-link">E-Commerce
+                            Demo <span class="iconify"
+                                       data-icon="bx:bxs-cart-add"></span></a>
+                        <a href="public/https://docs.mrassistant.tech/" class="btn btn-border btn-radius">Documentation <span
+                                class="iconify"
+                                data-icon="cib:sentry"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 order-first">
+                <div class="banner_image_right res_md_mb_50 res_xs_mb_30 animation" data-animation-delay="1.5s"
+                     data-animation="fadeInRight">
+                    <div class="waves-block">
+                        <img alt="banner_vector" src="public/assets/images/intro.png">
+                        <div class="promo-video">
+                            <div class="waves-block2">
+                                <div class="waves wave-1"></div>
+                                <div class="waves wave-2"></div>
+                                <div class="waves wave-3"></div>
+                            </div>
+                            <a href="public/https://www.youtube.com/watch?v=vQLOBashH-I" id="introVideo"
+                               class="video animation hide video-btn" data-animation="fadeInUp"
+                               data-animation-delay="1s"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION BANNER -->
+
+<!-- Chat with visitors in any way -->
+<section class="section section-l" id="chat-with-visitors">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                <div class="title_default_light title_border text-center">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Chat with visitors">Manage multiple website Visitors in one place</h4>
+                    <p class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s"
+                       style="animation-delay: 0.4s; opacity: 1;">Mr. Assistant Chatbot is a faster way of connecting, Engage, and support your every website visitors in one chat control panel in real-time.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-md-center">
+            <div class="col-lg-10 col-md-10 col-sm-10">
+                <div class="banner_image_right res_md_mb_50 res_xs_mb_30 animation" data-animation-delay="1.5s"
+                     data-animation="fadeInRight">
+                    <div class="waves-block">
+                        <img alt="banner_vector" src="public/assets/images/manage-multi.jpg">
+                        <div class="promo-video">
+                            <div class="waves-block2">
+                                <div class="waves wave-1"></div>
+                                <div class="waves wave-2"></div>
+                                <div class="waves wave-3"></div>
+                            </div>
+                            <a href="public/https://www.youtube.com/watch?v=ePaS9hGOx34"
+                               class="video animation hide video-btn" data-animation="fadeInUp"
+                               data-animation-delay="1s"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Chat with visitors in any way -->
+
+<!-- mr-bot -->
+<section class="section section-l" id="mr-bot">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                <div class="title_default_light title_border text-center">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Train You Bot">Versatile Chatbot with Website Bot</h4>
+                    <p class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s"
+                       style="animation-delay: 0.4s; opacity: 1;">Mr. Assistant is a versatile Live Chatbot with a built-in website bot, knowledge base, and unlimited custom actions using AI Technology. Every Action lets users get things done through a conversational interface that can range from a quick command.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-md-center">
+            <div class="col-lg-10 col-md-10 col-sm-10">
+                <div class="banner_image_right res_md_mb_50 res_xs_mb_30 animation" data-animation-delay="1.5s"
+                     data-animation="fadeInRight">
+                    <div class="waves-block">
+                        <img alt="banner_vector" src="public/assets/images/chatbot-demo.jpg">
+                        <div class="promo-video">
+                            <div class="waves-block2">
+                                <div class="waves wave-1"></div>
+                                <div class="waves wave-2"></div>
+                                <div class="waves wave-3"></div>
+                            </div>
+                            <a href="public/https://www.youtube.com/watch?v=XYetmB3JhBI"
+                               class="video animation hide video-btn" data-animation="fadeInUp"
+                               data-animation-delay="1s"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- mr-bot -->
+
+
+<!-- train-your-bot -->
+<section class="section section-l" id="train-your-bot">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                <div class="title_default_light title_border text-center">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Train You Bot">Train Mr. Assistant as your customer demands</h4>
+                    <p class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s"
+                       style="animation-delay: 0.4s; opacity: 1;">You can train Mr. Assistant as your customers demand with custom actions. It will automatically detect your training issues and inform you of the improvement.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-md-center">
+            <div class="col-lg-10 col-md-10 col-sm-10">
+                <div class="banner_image_right res_md_mb_50 res_xs_mb_30 animation" data-animation-delay="1.5s"
+                     data-animation="fadeInRight">
+                    <div class="waves-block">
+                        <img alt="banner_vector" src="public/assets/images/easy-train.png">
+                        <div class="promo-video">
+                            <div class="waves-block2">
+                                <div class="waves wave-1"></div>
+                                <div class="waves wave-2"></div>
+                                <div class="waves wave-3"></div>
+                            </div>
+                            <a href="public/https://www.youtube.com/watch?v=RSjNhEoliLc"
+                               class="video animation hide video-btn" data-animation="fadeInUp"
+                               data-animation-delay="1s"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- train-your-bot -->
+
+
+<!-- chat console -->
+<section class="section section-l" id="chat-console">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                <div class="title_default_light title_border text-center">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Chat console">Powerful Chat Console with multiple actions replay with templates</h4>
+                    <p class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s"
+                       style="animation-delay: 0.4s; opacity: 1;">Chat Console that is generally used for replay messages but Mr. Assistant has versatile actions to replay Action directly With multiple Templates</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="text_md_center">
+                    <img class="animation animated zoomIn" data-animation="zoomIn" data-animation-delay="0.2s"
+                         src="public/assets/chatbot/console.png" alt="aboutimg2" style="animation-delay: 0.2s; opacity: 1;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <div class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.8s"
+                         style="animation-delay: 0.8s; opacity: 1;">
+                        <br/>
+                        <p>Some of the Features :</p>
+                        <ul style="list-style-type: square;margin-left: 20px;margin-top: -20px;color: #fafafb;">
+                            <li>Ask Anonymous visitors about his/her Name and Email Address</li>
+                            <li>Suggest user for specific result according to search on the user's chat interface</li>
+                            <li>Suggest user for specific Knowledge base action on the user's chat interface</li>
+                            <li>Suggest user for specific URL on the user chat interface</li>
+                            <li>Open Help menu for guiding on the user's chat interface</li>
+                            <li>Open Custom menu for showing current Offer, notice or other on the user's chat interface</li>
+                            <li>Ask your visitors about feedback and rating of chat</li>
+                            <li>Manage user Chat Interface with a user-specific setting panel</li>
+                            <li>Add Short notes</li>
+                            <li>See Browsing History</li>
+                            <li>See user-specific Training Issues</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- chat-console -->
+
+
+
+<!-- Auto Navigation -->
+<section class="section section-l bg_light_dark" id="auto-navigation">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="text_md_center">
+                    <img class="animation animated zoomIn" data-animation="zoomIn" data-animation-delay="0.2s"
+                         src="public/assets/images/auto-navigation.gif" alt="aboutimg2"
+                         style="animation-delay: 0.2s; opacity: 1;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Auto Navigation">Auto Navigation to page</h4>
+                    <p>Users can automatically navigate to any desired page, post, or the product page with one search. Users need to add "/" before a search or just use the "go" keyword in the last of your search.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Auto Navigation -->
+
+
+<!-- Understand User Input -->
+<section class="section section-l" id="quick-search">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Chat Menu">QUICK SEARCH ACTIONS </h4>
+                        
+                        <p>QUICKLY SEARCH POST <strong>{Post} {Search content}</strong></p>
+                    <p>HASHTAG SEARCH FOR TAGS <strong>{#Tag} {Search content}</strong></p>
+                    <p>QUICK SEARCH WITH AUTHOR NAME <strong>{@Author} {Search content}</strong></p>
+                    <p>QUICK PRODUCT SEARCH <strong>{Product} {Search content}</strong></p>
+
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="text_md_center">
+                    <img class="animation animated zoomIn" data-animation="zoomIn" data-animation-delay="0.2s"
+                         src="public/assets/images/quick-search.gif" alt="aboutimg2"
+                         style="animation-delay: 0.2s; opacity: 1;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Understand User Input -->
+
+
+<!-- chat-menu -->
+<section class="section section-l bg_light_dark" id="chat-menu">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="text_md_center">
+                    <img class="animation animated zoomIn" data-animation="zoomIn" data-animation-delay="0.2s"
+                         src="public/assets/images/custom-menu.gif" alt="aboutimg2"
+                         style="animation-delay: 0.2s; opacity: 1;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Chat Menu">Custom Chat Menu</h4>
+                        <p>You can generate custom menus with mostly used actions such as offers, discounts, tending things, notices, suggestions, help action, cart, and many more as you need. Help Menu describes the instruction about how to use your service.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- chat-menu -->
+
+
+
+
+
+<!-- Build Own Custom Action -->
+<section class="section section-l" id="custom-action">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="float: right;animation-delay: 0.2s; opacity: 1;" title="Shopping Cart">Build your Own Custom Action</h4>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="banner_image_right res_md_mb_50 res_xs_mb_30 animation animated fadeInRight" data-animation-delay="1.5s" data-animation="fadeInRight" style="animation-delay: 1.5s; opacity: 1;">
+                    <div class="waves-block">
+                        <img alt="banner_vector" src="public/assets/images/build-action.png">
+                        <div class="promo-video">
+                            <div class="waves-block2">
+                                <div class="waves wave-1"></div>
+                                <div class="waves wave-2"></div>
+                                <div class="waves wave-3"></div>
+                            </div>
+                            <a href="public/https://www.youtube.com/watch?v=rfsLSipFm-4" class="video animation hide video-btn animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1s" style="animation-delay: 1s; opacity: 1;"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Build Own Custom Action -->
+
+
+<!-- Automatic Detect Training Issues -->
+<section class="section section-l bg_light_dark" id="auto-detect">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="text_md_center">
+                    <img class="animation animated zoomIn" data-animation="zoomIn" data-animation-delay="0.2s"
+                         src="public/assets/images/train-bot-with-issues.gif" alt="aboutimg2"
+                         style="animation-delay: 0.2s; opacity: 1;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Chat Menu">Automatic Detect Training Issues</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Automatic Detect Training Issues -->
+
+
+<!-- Manage Multiple Site Visitors -->
+<section class="section section-l" id="manage-multi-site">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="float: right;animation-delay: 0.2s; opacity: 1;" title="Shopping Cart">Manage Multiple Site Visitors</h4>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="banner_image_right res_md_mb_50 res_xs_mb_30 animation" data-animation-delay="1.5s"
+                     data-animation="fadeInRight">
+                    <div class="waves-block">
+                        <img alt="banner_vector" src="public/assets/images/manage-multisite.png">
+                        <div class="promo-video">
+                            <div class="waves-block2">
+                                <div class="waves wave-1"></div>
+                                <div class="waves wave-2"></div>
+                                <div class="waves wave-3"></div>
+                            </div>
+                            <a href="public/https://www.youtube.com/watch?v=Yi1YdxjFdmg"
+                               class="video animation hide video-btn" data-animation="fadeInUp"
+                               data-animation-delay="1s"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Manage Multiple Site Visitors -->
+
+
+<!-- Versatile Setting Panel-->
+<section class="section section-l bg_light_dark" id="setting-panel">
+    <div class="container">
+        <div class="row align-items-center">
+            
+			<div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="banner_image_right res_md_mb_50 res_xs_mb_30 animation animated fadeInRight" data-animation-delay="1.5s" data-animation="fadeInRight" style="animation-delay: 1.5s; opacity: 1;">
+                    <div class="waves-block">
+                        <img alt="banner_vector" src="public/assets/chatbot/settings.png">
+                        <div class="promo-video">
+                            <div class="waves-block2">
+                                <div class="waves wave-1"></div>
+                                <div class="waves wave-2"></div>
+                                <div class="waves wave-3"></div>
+                            </div>
+                            <a href="public/https://www.youtube.com/watch?v=PT7LaHhI5jg"" class="video animation hide video-btn animated fadeInUp" data-animation="fadeInUp" data-animation-delay="1s" style="animation-delay: 1s; opacity: 1;"><i class="fa fa-play" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border" style="margin-left: 47px;">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="animation-delay: 0.2s; opacity: 1;" title="Chat Menu">Versatile Setting Panel</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Versatile Setting Panel -->
+
+
+<!-- Fully Translatable -->
+<section class="section section-l" id="fully-translatable">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s"
+                        style="float: right;animation-delay: 0.2s; opacity: 1;" title="Shopping Cart">Fully Translatable</h4>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="text_md_center">
+                    <img class="animation animated zoomIn" data-animation="zoomIn" data-animation-delay="0.2s"
+                         src="public/assets/images/fully-translatable.gif" alt="aboutimg2"
+                         style="animation-delay: 0.2s; opacity: 1;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Fully Translatable -->
+
+
+
+
+
+<!-- START SECTION ABOUT US -->
+<section id="about" class="small_pt">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="text_md_center">
+                    <img class="animation" data-animation="zoomIn" data-animation-delay="0.2s"
+                         src="public/assets/images/mr-assistant.svg" alt="aboutimg2">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 res_md_mt_30 res_sm_mt_20">
+                <div class="title_default_light title_border">
+                    <h4 class="animation" data-animation="fadeInUp" data-animation-delay="0.2s">About Mr. Assistant</h4>
+                    <p class="animation" data-animation="fadeInUp" data-animation-delay="0.4s">Mr. Assistant an
+                        Innovative Artificial Intelligence Live Chat Bot with search engine and knowledge base for
+                        WordPress. When you Install MR. Assistant one virtual assistant will start live supporting your
+                        visitor as your website agent as your training. Mr. Assistant will keep supporting your clients
+                        within your knowledge base and WordPress Database. Also you can start live chat with this
+                        visitor when they chatting with Mr. assistant. One most beautiful feature is that you can see
+                        how
+                        many visitors and what page they exactly browsing on your site right now. Also, you can chat
+                        with visitors instantly when they need any help.</p>
+                    <div class="animation" data-animation="fadeInUp" data-animation-delay="0.8s"><p>No impact on your
+                        site loading performance because - </p>
+                        <ul style="list-style-type: square;margin-left: 20px;margin-top: -20px;color: #fafafb;">
+                            <li>Mr. Assistant has been built with vanilla javascript.</li>
+                            <li>Only 3KB Async loader Script will load on page load and this will generate an iframe
+                                when page load should be finished.
+                            </li>
+                            <li>It works in an iframe both public and admin side so it will not impact on your page
+                                performance.
+                            </li>
+                            <li>No jQuery is used.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION ABOUT US -->
+
+
+
+<!-- Technology & Performance -->
+<section id="technology" class="bg_light_dark" data-z-index="1" data-parallax="scroll"
+         data-image-src="public/assets/images/app_bg.png">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="title_default_light title_border text_md_center">
+                    <h4 class="animation" data-animation="fadeInUp" data-animation-delay="0.2s">Technology &
+                        Performance</h4>
+                    <p class="animation" data-animation="fadeInUp" data-animation-delay="0.4s">Mr. Assistant an
+                        asynchronous, event-driven, and single thread vanilla JavaScript chatbot. Mr. Assistant is
+                        designed to empower Search, 24/7 support systems, and customer service. Upon each conversation,
+                        the callback is fired in a single thread with a text recognizer layer accordingly custom
+                        pre-build actions, Knowledgebase, and build-in search engine, but if there is no perfect match
+                        to be done, Mr. Assistant will send this to live Agents. Mr. Assistant can handle many
+                        connections concurrently which in the background uses multiple threads to execute asynchronous
+                        actions in a single root.</p>
+                    <p class="animation" data-animation="fadeInUp" data-animation-delay="0.6s">Sometimes big size jQuery
+                        or other libraries come in the way and affect the performance of your site but here have no
+                        chance. Mr. Assistant has built with Vanilla JavaScript that speed and fully optimized for
+                        performance. It’s very lightweight and only a 75kb optimized script. Also, it is loaded in an
+                        iframe so no bad impact on your site.</p>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="res_md_mt_50 res_sm_mt_30 text-center animation" data-animation="fadeInRight"
+                     data-animation-delay="0.2s">
+                    <img src="public/assets/images/banner1.png" alt="mobile_app3">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Technology & Performance -->
+
+<!-- START SECTION FAQ -->
+<section id="faq" class="bg_light_dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 offset-lg-2">
+                <div class="title_default_light title_border text-center">
+                    <h4 class="animation" data-animation="fadeInUp" data-animation-delay="0.2s">Have Any Questions?</h4>
+                    <p class="animation" data-animation="fadeInUp" data-animation-delay="0.4s">Frequently asked
+                        questions (FAQ) or Questions and Answers (Q&A) are listed questions and answers, all supposed
+                        to be commonly asked in some context</p>
+                </div>
+            </div>
+        </div>
+        <div class="row small_space">
+            <div class="col-lg-12 col-md-12">
+                <div class="tab_content">
+                    <ul class="nav nav-pills tab_nav_s2 tab_color_white justify-content-center" id="pills-tab"
+                        role="tablist">
+                        <li class="nav-item animation" data-animation="fadeInUp" data-animation-delay="0.5s">
+                            <a class="active" data-toggle="tab" href="public/#tab1">General</a>
+                        </li>
+                        <li class="nav-item animation" data-animation="fadeInUp" data-animation-delay="0.6s">
+                            <a data-toggle="tab" href="public/#tab2">Pre-sell</a>
+                        </li>
+                        <li class="nav-item animation" data-animation="fadeInUp" data-animation-delay="0.7s">
+                            <a data-toggle="tab" href="public/#tab3">Actions & Features</a>
+                        </li>
+                        <li class="nav-item animation" data-animation="fadeInUp" data-animation-delay="0.8s">
+                            <a data-toggle="tab" href="public/#tab4">Supports</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content half_tab">
+                        <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="accordion1" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.4s">
+                                            <div class="card-header" id="headingOne">
+                                                <h6 class="mb-0"><a data-toggle="collapse" href="public/#collapseOne"
+                                                                    aria-expanded="true" aria-controls="collapseOne">What
+                                                    is Mr. Assistant?</a></h6>
+                                            </div>
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                 data-parent="#accordion1">
+                                                <div class="card-body"> An Artificial Intelligence Live Chat Engine that
+                                                    will be able to keep supporting your visitors as one of your agents
+                                                    as your training. One most beautiful feature is that you can see how
+                                                    many visitors are exactly browsing on your site right now and chat
+                                                    with them. But also it will not impact your page loading because
+                                                    this has been built with vanilla javascript.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.6s">
+                                            <div class="card-header" id="headingTwo">
+                                                <h6 class="mb-0"><a class="collapsed" data-toggle="collapse"
+                                                                    href="public/#collapseTwo" aria-expanded="false"
+                                                                    aria-controls="collapseTwo">Does it create any
+                                                    loading
+                                                    problem or site performance problem?</a></h6>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                                 data-parent="#accordion1">
+                                                <div class="card-body"> Mr. Assistant has built with Vanilla JavaScript
+                                                    that speed and fully optimized for performance. It’s very
+                                                    lightweight and only 75kb optimized script. Also it is loaded in
+                                                    iframe
+                                                    so no bad impact on your site.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="accordion2" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.8s">
+                                            <div class="card-header" id="headingThree">
+                                                <h6 class="mb-0"><a class="collapsed" data-toggle="collapse"
+                                                                    href="public/#collapseThree" aria-expanded="false"
+                                                                    aria-controls="collapseThree">Can I chat With
+                                                    Anonymous Visitors?</a></h6>
+                                            </div>
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                                 data-parent="#accordion1">
+                                                <div class="card-body"> Yes!! One most beautiful feature is that you can
+                                                    see how many visitors are exactly browsing on your site right. Also,
+                                                    you can see what they are browsing and you can start live supporting
+                                                    or guiding visitors if they need help. Now let's make your visitors
+                                                    as a
+                                                    happy customer.
+                                                    <br/>
+                                                    You can Chat With Your live Visitor when someone visits on your
+                                                    site.
+
+                                                    <br/>1. Chat with visitors with Anonymous auth This will
+                                                    Authenticate your visitor immediately as Anonymous auth when someone
+                                                    visit your site
+
+                                                    <br/>2. Chat with visitors with Anonymous GUID and auth (Manually)
+                                                    This will Generate unique GUID for Every Anonymous user You need to
+                                                    send chat request token to chat with Anonymous user
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card animation" data-animation="fadeInUp" data-animation-delay="1s">
+                                            <div class="card-header" id="headingFour">
+                                                <h6 class="mb-0"><a class="collapsed" data-toggle="collapse"
+                                                                    href="public/#collapseFour" aria-expanded="false"
+                                                                    aria-controls="collapseFour">Is it support like one
+                                                    of my live operators?</a></h6>
+                                            </div>
+                                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                                 data-parent="#accordion1">
+                                                <div class="card-body"> Mr. Assistant will support one of your live
+                                                    operators according to your training.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab2" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="accordion3" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.4s">
+                                            <div class="card-header" id="headingTen">
+                                                <h6 class="mb-0"><a data-toggle="collapse" href="public/#collapseNine"
+                                                                    aria-expanded="true" aria-controls="collapseNine">Can
+                                                    I get a Demo?</a></h6>
+                                            </div>
+                                            <div id="collapseTen" class="collapse show" aria-labelledby="headingNine"
+                                                 data-parent="#accordion3">
+                                                <div class="card-body"> Of Course!! Please contact us or email -
+                                                    <strong>supports@mr-assistant.com</strong></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="accordion4" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.4s">
+                                            <div class="card-header" id="headingThirteen">
+                                                <h6 class="mb-0"><a data-toggle="collapse" href="public/#collapseThirteen"
+                                                                    aria-expanded="true"
+                                                                    aria-controls="collapseThirteen">How can i buy Mr.
+                                                    Assistant ?</a></h6>
+                                            </div>
+                                            <div id="collapseThirteen" class="collapse show"
+                                                 aria-labelledby="headingThirteen" data-parent="#accordion4">
+                                                <div class="card-body"> You can buy it from only envato marketplace.
+                                                    Please click on the Buy Now button. -Thank You
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab3" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="accordion5" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.4s">
+                                            <div class="card-header" id="headingSeventeen">
+                                                <h6 class="mb-0"><a data-toggle="collapse" href="public/#collapseSeventeen"
+                                                                    aria-expanded="true"
+                                                                    aria-controls="collapseSeventeen">What is Mr.
+                                                    Assistant custom text Recognizer?</a></h6>
+                                            </div>
+                                            <div id="collapseSeventeen" class="collapse show"
+                                                 aria-labelledby="headingSeventeen" data-parent="#accordion5">
+                                                <div class="card-body"> It is a custom-built Text Recognizer for your
+                                                    Mr. Assistant project that can understand user messages in most
+                                                    cases as your training bot, what need in searching, detect best
+                                                    routes of actions, execute actions, finding posts or pages, browsing
+                                                    and more. Finally, Mr. Assistant will deliver the right results or
+                                                    execute the right action as a training bot.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="accordion6" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.4s">
+                                            <div class="card-header" id="headingNine">
+                                                <h6 class="mb-0"><a data-toggle="collapse" href="public/#collapse21"
+                                                                    aria-expanded="true" aria-controls="collapse21">What
+                                                    is Mr. Assistant Search Engine?</a></h6>
+                                            </div>
+                                            <div id="collapse21" class="collapse show" aria-labelledby="heading21"
+                                                 data-parent="#accordion6">
+                                                <div class="card-body"> An Artificial Intelligence Search Engine that
+                                                    has used a text recognizer engine and WordPress Ajax. It can
+                                                    recognize user demands by user input and show them the right
+                                                    results. Also provide some related suggestions.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab4" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="accordion7" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.4s">
+                                            <div class="card-header" id="heading25">
+                                                <h6 class="mb-0"><a data-toggle="collapse" href="public/#collapse25"
+                                                                    aria-expanded="true" aria-controls="collapse25">Is
+                                                    it a one-time fee?</a></h6>
+                                            </div>
+                                            <div id="collapse25" class="collapse show" aria-labelledby="heading25"
+                                                 data-parent="#accordion7">
+                                                <div class="card-body"> Yes. There are no monthly payments.</div>
+                                            </div>
+                                        </div>
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.6s">
+                                            <div class="card-header" id="heading26">
+                                                <h6 class="mb-0"><a class="collapsed" data-toggle="collapse"
+                                                                    href="public/#collapse26" aria-expanded="false"
+                                                                    aria-controls="collapse26">Is it a one-time fee?</a>
+                                                </h6>
+                                            </div>
+                                            <div id="collapse26" class="collapse" aria-labelledby="heading26"
+                                                 data-parent="#accordion7">
+                                                <div class="card-body">Yes. There are no monthly payments.</div>
+                                            </div>
+                                        </div>
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.8s">
+                                            <div class="card-header" id="heading27">
+                                                <h6 class="mb-0"><a class="collapsed" data-toggle="collapse"
+                                                                    href="public/#collapse27" aria-expanded="false"
+                                                                    aria-controls="collapse27">Can visitors talk with
+                                                    each other?</a></h6>
+                                            </div>
+                                            <div id="collapse27" class="collapse" aria-labelledby="heading27"
+                                                 data-parent="#accordion7">
+                                                <div class="card-body"> No. Mr. Assistant is developed for sales and
+                                                    support. The chat is only between the operator and the customer.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="accordion8" class="faq_content">
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.4s">
+                                            <div class="card-header" id="heading29">
+                                                <h6 class="mb-0"><a data-toggle="collapse" href="public/#collapse29"
+                                                                    aria-expanded="true" aria-controls="collapse29">Have
+                                                    any plugin updates free?</a></h6>
+                                            </div>
+                                            <div id="collapse29" class="collapse show" aria-labelledby="heading29"
+                                                 data-parent="#accordion8">
+                                                <div class="card-body"> no. You can update your Mr. Assistant chatbot in
+                                                    a single purchase.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.6s">
+                                            <div class="card-header" id="heading30">
+                                                <h6 class="mb-0"><a class="collapsed" data-toggle="collapse"
+                                                                    href="public/#collapse30" aria-expanded="false"
+                                                                    aria-controls="collapse30">How many users can chat
+                                                    at one time?</a></h6>
+                                            </div>
+                                            <div id="collapse30" class="collapse" aria-labelledby="heading30"
+                                                 data-parent="#accordion8">
+                                                <div class="card-body">100 users can connect chat simultaneously. For
+                                                    instance, if 1 operator is connected to the chat console, 99
+                                                    visitors are able to start chat and receive messages. (i.e. 1
+                                                    operator + Mr. Assistant[Bot] and 99 visitors)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card animation" data-animation="fadeInUp"
+                                             data-animation-delay="0.8s">
+                                            <div class="card-header" id="heading31">
+                                                <h6 class="mb-0"><a class="collapsed" data-toggle="collapse"
+                                                                    href="public/#collapse31" aria-expanded="false"
+                                                                    aria-controls="collapse31">Do I get support for all
+                                                    my domains if I purchase an "Unlimited" license?</a></h6>
+                                            </div>
+                                            <div id="collapse31" class="collapse" aria-labelledby="heading31"
+                                                 data-parent="#accordion8">
+                                                <div class="card-body"> No. Although you can install your LiveChat on
+                                                    unlimited domains with your Unlimited license, only one-domain is
+                                                    supported. You will want to purchase a "Complete" license for each
+                                                    other domains you'd like to get support.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION FAQ -->
+
+
+
+
+
+<!-- START FOOTER SECTION -->
+<footer>
+    <div class="bottom_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">Copyright &copy; 2020 All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list_none footer_menu">
+                        <li><a href="public/#">Privacy Policy</a></li>
+                        <li><a href="public/#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER SECTION -->
+
+<a href="public/#" class="scrollup btn-default"><span class="iconify" data-icon="emojione-v1:up-pointing-military-airplane"
+                                               data-inline="true"></span></a>
+
+<!-- Latest iconify -->
+<script src="public/assets/js/iconify.min.js"></script>
+<!-- Latest jQuery -->
+<script src="public/assets/js/jquery-1.12.4.min.js"></script>
+<!-- Latest compiled and minified Bootstrap -->
+<script src="public/assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- owl-carousel min js  -->
+<script src="public/assets/owlcarousel/js/owl.carousel.min.js"></script>
+<!-- magnific-popup min js  -->
+<script src="public/assets/js/magnific-popup.min.js"></script>
+<!-- waypoints min js  -->
+<script src="public/assets/js/waypoints.min.js"></script>
+<!-- parallax js  -->
+<script src="public/assets/js/parallax.js"></script>
+<!-- countdown js  -->
+<!--<script src="public/assets/js/jquery.countdown.min.js"></script>-->
+<!-- particles min js  -->
+<!--<script src="public/assets/js/particles.min.js"></script>-->
+<!-- scripts js -->
+<script src="public/assets/js/jquery.dd.min.js"></script>
+<!-- jquery.counterup.min js -->
+<!--<script src="public/assets/js/jquery.counterup.min.js"></script>-->
+<!-- modern_canvas js -->
+<script src="public/assets/js/modern_canvas.js"></script>
+<!--<script src="public/assets/js/spop.min.js"></script>-->
+<!--<script src="public/assets/js/notification.js"></script>-->
+<!-- scripts js -->
+<script src="public/assets/js/scripts.js"></script>
+
+
+<div id="cwvChatWidgetRoot"></div>
+
+</body>
 </html>
