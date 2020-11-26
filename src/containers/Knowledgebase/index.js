@@ -16,6 +16,7 @@ import { jsx, css, Global, ClassNames } from '@emotion/core'
 import converted from './style.js';
 import Input from '../../components/Input';
 import ChatStartButton from '../../components/ChatStartButton';
+import CloseButton from '../../components/CloseButton';
 
 
 let miniSearch = new MiniSearch({
@@ -132,7 +133,8 @@ function Knowledgebase() {
         <ChatStartButton text="Live Chat with us" onClick={onLiveChat}/>
         
       </div>
-      <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div>
+      <CloseButton onClick={onDashboardClose} text={'Close '} />
+      {/* <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div> */}
 
     </div>
     </>

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Ava from '../../images/avater.png';
+
+import {makeTime} from '../../functions/time';
 // import './style.css';
 import { jsx, css, Global, ClassNames } from '@emotion/core'
 import converted from './style.js';
 
 function Message({ message }) {
-  const [showTime, setShowTime] = useState(false)
+  const [showTime, setShowTime] = useState(true)
   console.log('message', message)
   const onClickHandler = () => {
     setShowTime(!showTime);
@@ -29,7 +31,7 @@ function Message({ message }) {
         <div className="wpcwv-messageHeader" style={{ opacity: (+ showTime) }}>
           <span className="wpcwv-messageSender">{message.name}</span>
           <time dateTime="Mon Oct 05 2020 13:27:10 GMT+0600 (Bangladesh Standard Time)">
-            {message.time}
+            { makeTime(message.time, 'MMM d, yy h:mm a')}
           </time>
         </div>
 

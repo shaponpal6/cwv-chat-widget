@@ -1,9 +1,0 @@
-.wpcwv-authPage {
-    width: 100%;
-}
-form.wpcwv-authForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-}

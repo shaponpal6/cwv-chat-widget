@@ -48,7 +48,7 @@ const converted = {
     '.wpcwv-avaterWrapper img[src^="//"]+figcaption, .wpcwv-avaterWrapper img[src^=http]+figcaption': {
       display: "none"
     },
-    ".wpcwv-messageContainer": { width: "80%", marginLeft: "5px" },
+    ".wpcwv-messageContainer": { width: "100%", marginLeft: "5px" },
     ".wpcwv-messageHeader": { marginBottom: "5px", display: "block" },
     ".wpcwv-messageSender": { color: "#999", fontSize: "14px" },
     ".wpcwv-messageHeader time": { color: "#999", margin: "0 5px" },
@@ -67,7 +67,7 @@ const converted = {
       overflowWrap: "break-word"
       
     },
-    ".wpcwv-senderMessage::after": {
+    ".wpcwv-admin .wpcwv-senderMessage::after": {
       top: "0",
       left: "-9px",
       content: '""',
@@ -75,6 +75,14 @@ const converted = {
       borderRight: "10px solid #E0F2F1",
       borderBottom: "15px solid transparent"
     },
-    ".wpcwv-client": { float: "right" }
+    ".wpcwv-client": { float: "right" },
+    ".wpcwv-client .wpcwv-messageContainer": {
+      marginLeft: 0
+    },
+    ".wpcwv-client .wpcwv-senderMessage, .wpcwv-client .wpcwv-messageHeader": {
+      width: '100%',
+      textAlign: 'right'
+    },
+    
   }
 export default converted;  

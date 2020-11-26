@@ -64,7 +64,7 @@ function Messages({ firebase }) {
             {error && 'Error: ' + error}
 
             {state.messages.map((message) => {
-                return <Message key={"ss" + message.key} message={message} />;
+                return <Message key={"mId-" + message.key} message={message} />;
             })}
 
 

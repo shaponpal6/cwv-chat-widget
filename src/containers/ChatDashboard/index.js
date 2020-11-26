@@ -15,6 +15,7 @@ import ButtonCircle from '../../components/ButtonCircle';
 import { jsx, css, Global, ClassNames } from '@emotion/core'
 import converted from './style.js';
 import Input from '../../components/Input';
+import CloseButton from '../../components/CloseButton';
 
 const Search = () => {
   const [showResults2, setShowResults] = useState(false)
@@ -150,8 +151,10 @@ function ChatDashboard() {
             I'm Nothing
           </div> */}
         </div>
-        <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div>
 
+        {/* <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onDashboardClose} content="Close " image={< X size={17} />} /></div> */}
+
+        <CloseButton onClick={onDashboardClose} text={'Close '} />
 
 
       </div>

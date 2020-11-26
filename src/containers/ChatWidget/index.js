@@ -7,6 +7,8 @@ import HeaderActionsButton from '../../components/HeaderActionsButton';
 import DraftMessageEditor from '../../components/DraftMessageEditor';
 import ButtonCircle from '../../components/ButtonCircle';
 
+// import getUTCNow from '../../functions/time'
+
 
 import Messages from '../../components/Messages';
 import AuthForm from '../../components/AuthForm';
@@ -17,6 +19,7 @@ import PropTypes from 'prop-types'
 
 import { jsx, css, Global, ClassNames } from '@emotion/core'
 import converted from './style.js';
+import CloseButton from '../../components/CloseButton';
 // import './header.css';
 // import './body.css';
 // import './footer.css';
@@ -72,6 +75,7 @@ function Widget({ firebase }) {
     // e.preventDefault();
     if (!message) return;
     const replay = message;
+ 
     setMessage('');
     console.log('message>>', message);
     const { uid, displayName, photoURL } = firebase.getCurrentUser();
@@ -83,7 +87,7 @@ function Widget({ firebase }) {
       senderID: uid,
       name: displayName,
       photoURL: photoURL,
-      time: 'ss',
+      time: new Date().toISOString(),
     }
     dispatch(addMessage(messageObj));
     firebase.setMessage(messageObj);
@@ -142,7 +146,8 @@ function Widget({ firebase }) {
           </div>
         </div>
       </div>
-      <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onCloseWidget} content="Close " image={<X size={17} />} /></div>
+      <CloseButton onClick={onCloseWidget} text={'Close '} />
+      {/* <div className="wpcwv-widgetClose"><ButtonCircle setClassName="wpcwv-buttonDashboardClose" onClick={onCloseWidget} content="Close " image={<X size={17} />} /></div> */}
     </div>
     </>
   );

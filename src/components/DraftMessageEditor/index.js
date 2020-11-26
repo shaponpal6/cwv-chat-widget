@@ -3,6 +3,8 @@ import { Editor, EditorState, ContentState, convertToRaw, getDefaultKeyBinding, 
 import draftToHtml from "draftjs-to-html";
 import "draft-js/dist/Draft.css";
 import useSound from 'use-sound';
+import { jsx, css, Global, ClassNames } from '@emotion/core'
+import converted from './style.js';
 
 import RisingPops from '../../sounds/rising-pops.mp3';
 const { hasCommandModifier } = KeyBindingUtil;
@@ -75,6 +77,8 @@ function DraftMessageEditor({ onMessageSave }) {
   };
 
   return (
+    <>
+    <Global styles={converted}/>
     <div className="wpcwv-messageForm">
       <div className="wpcwv-textarea" style={styles.editor} onClick={focus}>
         <Editor
@@ -96,6 +100,7 @@ function DraftMessageEditor({ onMessageSave }) {
         </button>
       </div>
     </div>
+    </>
   );
 }
 
