@@ -21,8 +21,6 @@ function Messages({ firebase }) {
 
     useEffect(scrollToBottom, [state.messages]);
 
-
-
     const [_clientData, loading, error] = useDocument(
         firebase.getClientData(),
         {
@@ -42,7 +40,6 @@ function Messages({ firebase }) {
             }
             // dispatch(setClientData(clientSnapshot))
             dispatch(setClientData(clientSnapshot));
-
         }
 
         return () => { }

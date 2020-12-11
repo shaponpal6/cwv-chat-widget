@@ -83,6 +83,15 @@ class Firebase {
     }, { merge: true });
   };
 
+  // Add Visitors
+  updateVisitorsListMap = (uid, data) => {
+    const chatUsersList = this.db.collection('visitors').doc('visitorsList');
+    data.seen = this.firestore.Timestamp.now();
+    return chatUsersList.set({
+      "visitors": { [uid]: data }
+    }, { merge: true });
+  };
+
   // get users Map
   getListData = (type = 'chatUsersList') => {
     return this.db.doc(`lists/${type}`);
