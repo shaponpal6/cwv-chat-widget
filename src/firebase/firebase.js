@@ -1,6 +1,7 @@
 import app from "@firebase/app";
 import "@firebase/firestore";
 import "@firebase/auth";
+import "@firebase/remote-config";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -13,17 +14,6 @@ var firebaseConfig = {
   appId: "1:1074224122035:web:0040c4ea47b4d5d710c8c6",
 };
 
-// var firebaseConfig = {
-//   apiKey: "AIzaSyC2vlff4QkXketlQHD-5O36mJ8Tb8dMG3o",
-//   authDomain: "cwvchat.firebaseapp.com",
-//   databaseURL: "https://cwvchat.firebaseio.com",
-//   projectId: "cwvchat",
-//   storageBucket: "cwvchat.appspot.com",
-//   messagingSenderId: "943890705259",
-//   appId: "1:943890705259:web:12d74221ba223a15b5ba2e",
-//   measurementId: "G-YWM4XD6EYY"
-// };
-
 class Firebase {
   constructor() {
     if (!app.apps.length) {
@@ -32,6 +22,7 @@ class Firebase {
 
     this.auth = app.auth();
     this.db = app.firestore();
+    this.remoteConfig = app.remoteConfig();
     this.firestore = app.firestore;
     this.googleProvider = new app.auth.GoogleAuthProvider();
     this.updateUserListMap = this.updateUserListMap.bind(this);
@@ -41,65 +32,86 @@ class Firebase {
 
   getAuth = () => this.auth;
   getCurrentUser = () => this.auth.currentUser;
-  getServerTimestamp = () => this.firestore.FieldValue.serverTimestamp();
   getUserID = () => this.getCurrentUser().uid;
+  // getServerTimestamp = () => this.firestore.FieldValue.serverTimestamp();
   getDisplayName = () => this.getCurrentUser().displayName;
   getPhotoURL = () => this.getCurrentUser().photoURL;
 
+  // Add Visitors
+  updateVisitorsListMap = (collectionId, uid, data) => {
+    const chatUsersList = this.db.collection("visitors").doc(collectionId);
+    return chatUsersList.set(
+      {
+        visitors: { [uid]: data },
+      },
+      { merge: true }
+    );
+  };
+
+  // Get Action Listener
+  getAction = (action) => this.db.collection("actions").doc(action);
+
+  // get users Map
+  getMessageDocs = () => {
+    if (!this.getCurrentUser()) return null;
+    return this.db.doc(`messages/${this.getUserID()}`);
+  };
+  
+  
   getCollection = (ref) => this.db.collection(ref);
   getDoc = (ref) => this.db.doc(ref);
-  setData = (collection, uid, data) => this.db.collection(collection).doc(uid).set(data);
-  addData = (collection, uid, field, data) => this.db.collection(collection).doc(uid).collection(field).add(data);
+  setData = (collection, uid, data) =>
+    this.db.collection(collection).doc(uid).set(data);
+  addData = (collection, uid, field, data) =>
+    this.db.collection(collection).doc(uid).collection(field).add(data);
 
-  addMessage = (uid, data) => this.db.collection('clients').doc(uid).doc('messages').update('array', data);
+  addMessage = (uid, data) =>
+    this.db
+      .collection("clients")
+      .doc(uid)
+      .doc("messages")
+      .update("array", data);
   updateMessages = (uid, data) => {
-    const clientRef = this.db.collection('clients').doc(uid);
+    const clientRef = this.db.collection("clients").doc(uid);
     // data.time = this.firestore.Timestamp.now();
     return clientRef.update({
-      messages: this.firestore.FieldValue.arrayUnion(data)
+      messages: this.firestore.FieldValue.arrayUnion(data),
     });
   };
   setMessage = (data) => {
-    if (!this.getAuth()) return null;
-    const clientRef = this.db.collection('clients').doc(this.getUserID());
+    if (!this.getCurrentUser()) return null;
+    const clientRef = this.db.collection("messages").doc(this.getUserID());
     // data.time = this.firestore.Timestamp.now();
 
-    return clientRef.set({
-      messages: this.firestore.FieldValue.arrayUnion(data)
-    }, { merge: true });
+    return clientRef.set(
+      {
+        messages: this.firestore.FieldValue.arrayUnion(data),
+      },
+      { merge: true }
+    );
   };
   // get users Map
   getClientData = () => {
-    if (!this.getAuth()) return null;
+    if (!this.getCurrentUser()) return null;
     return this.db.doc(`clients/${this.getUserID()}`);
   };
 
   // Update Map
   updateUserListMap = (uid, data) => {
-    const chatUsersList = this.db.collection('lists').doc('chatUsersList');
+    const chatUsersList = this.db.collection("lists").doc("chatUsersList");
     data.seen = this.firestore.Timestamp.now();
-    return chatUsersList.set({
-      "users": { [uid]: data }
-    }, { merge: true });
-  };
-
-  // Add Visitors
-  updateVisitorsListMap = (uid, data) => {
-    const chatUsersList = this.db.collection('visitors').doc('visitorsList');
-    data.seen = this.firestore.Timestamp.now();
-    return chatUsersList.set({
-      "visitors": { [uid]: data }
-    }, { merge: true });
+    return chatUsersList.set(
+      {
+        users: { [uid]: data },
+      },
+      { merge: true }
+    );
   };
 
   // get users Map
-  getListData = (type = 'chatUsersList') => {
+  getListData = (type = "chatUsersList") => {
     return this.db.doc(`lists/${type}`);
   };
-
-
-
-
 
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
@@ -114,16 +126,15 @@ class Firebase {
     //   console.log('object', object)
     // });
     this.auth.signInAnonymously().catch(function (error) {
-      console.log('error>>>> ', error)
+      console.log("error>>>> ", error);
     });
-  }
+  };
 
   doSignInAnonymouslyWithData = (data) => {
     this.auth.signInAnonymously().catch(function (error) {
-      console.log('error>>>> ', error)
+      console.log("error>>>> ", error);
     });
-  }
-
+  };
 
   doSignInWithGoogle = () => {
     var provider = this.googleProvider;

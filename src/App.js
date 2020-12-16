@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect} from "react";
 import { AppContext } from "./store";
 import WelcomePage from "./containers/WelcomeToChat";
 import ChatWidget from "./containers/ChatWidget";
@@ -9,6 +9,7 @@ import { setRoute, doOnOff } from "./store/actions";
 import Knowledgebase from "./containers/Knowledgebase";
 import ButtonCircle from "./components/ButtonCircle";
 import OnTracking from "./containers/onTracking";
+import ActionTracker from "./containers/onTracking/actionTracker";
 
 import { jsx, css, Global, ClassNames } from "@emotion/core";
 import converted from "./containers/ChatWidget/style";
@@ -17,6 +18,13 @@ import converted from "./containers/ChatWidget/style";
 
 const ChatApp = () => {
   const [state, dispatch] = useContext(AppContext);
+
+  useEffect(() => {
+    
+    return () => {
+      
+    }
+  }, [])
 
   // Chat Button Open / Close
   const onChatButtonClick = (e) => {
@@ -41,7 +49,7 @@ const ChatApp = () => {
       <div className="wpcwv-container">
 
         <FirebaseContext.Provider value={new Firebase()}>
-          {state.chatRoute === "chatWidget" && <ChatWidget />}
+          {state.chatRoute === "chatWidget" ? <ChatWidget /> : <ActionTracker/>}
           <OnTracking/>
         </FirebaseContext.Provider>
 
@@ -68,5 +76,6 @@ const ChatApp = () => {
     </>
   );
 };
+
 
 export default ChatApp;

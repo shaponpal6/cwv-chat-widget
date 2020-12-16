@@ -7,12 +7,15 @@ import { detect } from "detect-browser";
 import { uid, getCookie, setCookie } from "../../functions/helper";
 
 function OnTracking({ firebase }) {
+  const collectionID = getConfig("collectionID", false) ? config.collectionID : 'cwvCollection-default';
+  localStorage.setItem('cwvActiveSession', collectionID)
   if (!getConfig("tracking", false)) return <></>;
 
-  const [sessionId, setSessionId] = useState(
-    sessionStorage.getItem("cwvChatSessionId")
-  );
-  const [pageViewId, setPageViewId] = useState(getCookie("cwvChatPageViewId"));
+
+  // const [sessionId, setSessionId] = useState(
+  //   sessionStorage.getItem("cwvChatSessionId")
+  // );
+  // const [pageViewId, setPageViewId] = useState(getCookie("cwvChatPageViewId"));
 
   /**
    * Initialized Session ID and page view id
@@ -20,17 +23,51 @@ function OnTracking({ firebase }) {
   useEffect(() => {
     const pageId = 1 * new Date();
     setCookie("cwvChatPageViewId", pageId);
-    setPageViewId(pageId);
-    if (!sessionId) {
-      const sessionId = uid();
-      sessionStorage.setItem("cwvChatSessionId", sessionId);
-      setSessionId(sessionId);
-    }
-    
-    if (sessionId && pageViewId) {
+    // setPageViewId(pageId);
+
+    const addTrackingDataWithNewUser = (trackingID, data) => {
+      if (firebase.getCurrentUser()) {
+        console.log("User Signed in>>>", firebase.getUserID());
+      } else {
+        firebase.auth
+          .signInAnonymously()
+          .then(() => {
+            console.log("Signed in success>>>");
+            doTracking();
+            if (firebase.getCurrentUser()) {
+              var uid = firebase.getUserID();
+              firebase.updateVisitorsListMap(trackingID, uid, data);
+              console.log("User Signed in>>>", firebase.getUserID());
+            }
+          })
+          .catch((error) => {
+            console.log("signInAnonymously signin Error", error);
+          });
+        // firebase.auth.onAuthStateChanged((user) => {
+        //   if (user) {
+        //     var uid = user.uid;
+        //     console.log('user', user)
+        //     console.log('uid', uid)
+        //     data['uid'] = uid;
+        //     //firebase.updateVisitorsListMap(uid, data);
+        //     const cursor = firebase.db.collection("visitors").doc("collectionId");
+        //     // const cursor = firebase.db.collection("visitors").doc("collectionId").collection('tracking').doc(uid);
+        //     cursor.set({
+        //       "visitors": { [uid]: data }
+        //     }, { merge: true });
+        //   } else {
+        //   }
+        // });
+      }
+    };
+
+    const doTracking = (action) => {
+      if (!(action && action.hasOwnProperty("trackingID") && action.trackingID))
+        return;
       let trackData = {};
-      trackData["pageViewId"] = pageViewId;
-      trackData["clientId"] = sessionId;
+      let trackingID = action.trackingID ?? collectionID;
+      // trackData["pageViewId"] = pageViewId;
+      // trackData["clientId"] = sessionId;
       trackData["lastUpdated"] = new Date().toISOString();
       const browser = getConfig("browserInfo", false) ? detect() : {};
 
@@ -59,54 +96,98 @@ function OnTracking({ firebase }) {
             if (getConfig("latitude", false))
               trackData["latitude"] = result.match(/"latitude":"([^"]+)"/)[1];
 
-              console.log('object', Date.now())
+            console.log("trackData with IP", trackData);
 
-              // Save Data
-            firebase.updateVisitorsListMap(sessionId, {
+            addTrackingDataWithNewUser(trackingID, {
               ...trackData,
               ...browser,
             });
           });
       } else {
-        //Save data
-        firebase.updateVisitorsListMap(sessionId, {
-          ...trackData,
-          ...browser,
-        });
+        addTrackingDataWithNewUser(trackingID, { ...trackData, ...browser });
       }
-      console.log("track", { ...trackData, ...browser });
-    }
-          
+    };
 
-    return () => {};
+    if (getConfig("tracking", false)) {
+      firebase.auth.onAuthStateChanged((user) => {
+        if (user) {
+          var uid = user.uid;
+          console.log('uid :>> ', uid);
+          // Add action Listener
+          
+          // if(route !=='chatWidget'){
+          // firebase.getMessageDocs().onSnapshot(
+          //   {
+          //     includeMetadataChanges: true,
+          //   },
+          //   function (doc) {
+          //     const action = doc.data();
+          //     console.log('doc :>> ', doc);
+          //     console.log('doc data :>> ', doc.data());
+              
+          //   });
+          // }else{
+          //   var actionUnsubscribe = firebase.getMessageDocs().onSnapshot(function () {});
+          //   actionUnsubscribe();
+          //   console.log('actionUnsubscribe :>> ', actionUnsubscribe());
+          // }
+
+        } else {
+          // Add Tracking Listener
+          firebase.getAction("tracking").onSnapshot(
+            {
+              includeMetadataChanges: true,
+            },
+            function (doc) {
+              const action = doc.data();
+              // check session and do tracking with collection
+              if (
+                action &&
+                action.hasOwnProperty("sessionEnd") &&
+                action.sessionEnd &&
+                action.hasOwnProperty("status") &&
+                action.status === "on"
+              ) {
+                console.log("doc>>>", doc);
+                console.log("doc>>>", action);
+                doTracking(action);
+              }
+            }
+          );
+        }
+      });
+    }
+
+    // if (!sessionId) {
+    //   const sessionId = uid();
+    //   sessionStorage.setItem("cwvChatSessionId", sessionId);
+    //   setSessionId(sessionId);
+    // }
+
+    return () => {
+      var unsubscribe = firebase
+        .getAction("tracking")
+        .onSnapshot(function () {});
+      unsubscribe();
+    };
   }, []);
 
-  // Get current active template.
-  // const template = await firebase.remoteConfig.getAll();
-  // console.log('template', template)
+  console.log("firebase", firebase);
 
-  // firebase.remoteConfig.defaultConfig = {
-  //   app_super_awesome_feature: false,
+  // const remoteConfig = firebase.remoteConfig;
+  // remoteConfig.settings = {
+  //   fetchTimeMillis: 1, // One min before timing out while fetching
+  //   minimumFetchIntervalMillis: 1, // very short interval for fields expiration.s
   // };
-  // firebase.remoteConfig
+  // remoteConfig.defaultConfig = {
+  //   cwv_tracking: { ID: 1, lastUpdated: "", type: "fatch_visitors" },
+  // };
+  // remoteConfig
   //   .fetchAndActivate()
   //   .then(() => {
-  //     let superAwesomeFeature = firebase.remoteConfig
-  //       .getValue("app_super_awesome_feature")
-  //       .asBoolean();
-  //     let test_awesome_feature = firebase.remoteConfig.getValue(
-  //       "test_awesome_feature"
-  //     );
-  //     console.log("test_awesome_feature>>>>>>>>>>>>>", test_awesome_feature);
-  //     console.log(
-  //       `[💪] We've Got the superAwesomeFeature flag as : ${superAwesomeFeature}, with type: ${typeof superAwesomeFeature}`
-  //     );
-  //     if (superAwesomeFeature) {
-  //       console.log(`[🥳] Showing discount popup!`);
-  //       $("#discountModal").modal();
-  //     } else {
-  //       console.log(`[😢] I didn't get any discounts yet ..`);
-  //     }
+  //     let superAwesomeFeature = remoteConfig.getValue("cwv_tracking");
+  //     console.log("superAwesomeFeature>>", superAwesomeFeature);
+  //     // console.log(`11111 >>> ${superAwesomeFeature}, with type: ${typeof superAwesomeFeature}`);
   //   })
   //   .catch((err) => {
   //     console.log(`[🆘] Error in Paradise ! `);

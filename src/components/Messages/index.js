@@ -22,7 +22,7 @@ function Messages({ firebase }) {
     useEffect(scrollToBottom, [state.messages]);
 
     const [_clientData, loading, error] = useDocument(
-        firebase.getClientData(),
+        firebase.getMessageDocs(),
         {
             snapshotListenOptions: { includeMetadataChanges: true },
         }
